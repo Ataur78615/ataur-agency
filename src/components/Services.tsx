@@ -6,7 +6,7 @@ export default function Services() {
   return (
     <section id="services" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -22,7 +22,7 @@ export default function Services() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
+
           {/* Card 1: UGC Video Creation */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -33,7 +33,7 @@ export default function Services() {
             <div className="mb-6 flex justify-center">
               <div className="p-4 bg-purple-50 rounded-full text-purple-600">
                 {/* Video Icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 7l-7 5 7 5V7z" /><rect x="1" y="5" width="15" height="14" rx="2" ry="2" /></svg>
               </div>
             </div>
             <h3 className="text-2xl font-semibold text-gray-900 mb-4">
@@ -51,10 +51,10 @@ export default function Services() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow border border-gray-100"
           >
-             <div className="mb-6 flex justify-center">
+            <div className="mb-6 flex justify-center">
               <div className="p-4 bg-indigo-50 rounded-full text-indigo-600">
                 {/* Clapperboard Icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" /><line x1="7" y1="2" x2="7" y2="22" /><line x1="17" y1="2" x2="17" y2="22" /><line x1="2" y1="12" x2="22" y2="12" /><line x1="2" y1="7" x2="7" y2="7" /><line x1="2" y1="17" x2="7" y2="17" /><line x1="17" y1="17" x2="22" y2="17" /><line x1="17" y1="7" x2="22" y2="7" /></svg>
               </div>
             </div>
             <h3 className="text-2xl font-semibold text-gray-900 mb-4">
@@ -135,7 +135,7 @@ export default function Services() {
               <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full">
                 React Js
               </span>
-               <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full">
+              <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full">
                 Node js
               </span>
             </div>
@@ -169,6 +169,40 @@ export default function Services() {
               </span>
               <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
                 TypeScript
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Card 6: n8n Automation (NEW) */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+            className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow border border-gray-100"
+          >
+            <div className="mb-6 flex justify-center">
+              <div className="p-4 bg-orange-50 rounded-full text-orange-600">
+                {/* Workflow/Settings Icon */}
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2v4" /><path d="m16.2 7.8 2.9-2.9" /><path d="M18 12h4" /><path d="m16.2 16.2 2.9 2.9" /><path d="M12 18v4" /><path d="m7.8 16.2-2.9 2.9" /><path d="M2 12h4" /><path d="m7.8 7.8-2.9-2.9" /><circle cx="12" cy="12" r="3" />
+                </svg>
+              </div>
+            </div>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+              Customer Followup
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Boost your retention with automated n8n agents that handle customer followups and workflows perfectly.
+            </p>
+            <div className="flex justify-center gap-2 flex-wrap">
+              <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full">
+                n8n
+              </span>
+              <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full">
+                Automation
+              </span>
+              <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full">
+                AI Agents
               </span>
             </div>
           </motion.div>
