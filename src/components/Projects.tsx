@@ -6,12 +6,12 @@ import Image from "next/image";
 
 const projects = [
   {
-    title: "Stayzzy Bloom",
-    description: "Hotel website built with Next.js and TypeScript",
+    title: "Hotel UP Wala",
+    description: "Hotel Booking & listing website built with Next.js and TypeScript",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/715096269.jpg?k=e8422d11e731649ea72da6b8f7e569d8882c5900321f71010f0e3beeb4621881&o=",
     slug: "stayzzy-bloom",
-    live: "https://www.stayzzy.com/",
+    live: "https://www.hotelupwala.com/",
     source: "#",
   },
   {
