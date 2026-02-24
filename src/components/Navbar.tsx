@@ -11,8 +11,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold text-gray-900">
-              MD Ataur Ansari
+            <Link href="/" className="group">
+              <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-primary-500 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:border-primary-600">
+                <img
+                  src="/img/Ataur Agency.png"
+                  alt="Ataur Agency Logo"
+                  className="h-full w-full object-cover"
+                />
+              </div>
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
@@ -35,9 +41,7 @@ export default function Navbar() {
             <a href="https://github.com/Ataur78615" target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-gray-700">
               💻
             </a>
-            <a href="https://vercel.com/md-ataur-ansaris-projects" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-700">
-              ▲
-            </a>
+
           </div>
           <div className="md:hidden flex items-center">
             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 hover:text-gray-900">

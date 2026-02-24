@@ -7,16 +7,16 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700"] });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
 export const metadata: Metadata = {
-  title: "MD Ataur Ansari - UGC Creator • CGI Ads Specialist • MERN & Next.js Developer",
+  title: "Ataur Agency",
   description: "Portfolio of MD Ataur Ansari, a UGC Creator, CGI Ads Specialist, and MERN & Next.js Developer. View projects, services, and contact for high-converting ads and full-stack websites.",
   keywords: ["UGC Creator", "CGI Ads", "MERN Stack", "Next.js", "Full-Stack Developer", "Portfolio"],
   authors: [{ name: "MD Ataur Ansari" }],
   creator: "MD Ataur Ansari",
   openGraph: {
-    title: "MD Ataur Ansari - UGC Creator • CGI Ads Specialist • MERN & Next.js Developer",
+    title: "Ataur Agency",
     description: "Portfolio showcasing UGC/CGI ads and full-stack development skills.",
     url: "https://ataur-ansari.vercel.app",
-    siteName: "MD Ataur Ansari Portfolio",
+    siteName: "Ataur Agency Portfolio",
     images: [
       {
         url: "/images/og-image.jpg",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MD Ataur Ansari - UGC Creator • CGI Ads Specialist • MERN & Next.js Developer",
+    title: "Ataur Agency",
     description: "Portfolio showcasing UGC/CGI ads and full-stack development skills.",
     images: ["/images/og-image.jpg"],
     creator: "@ataurway",

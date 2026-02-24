@@ -1,9 +1,26 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+
+const carouselImages = [
+  "/img/AtaAgen.jpg",
+  "/img/Ataur Agency temp.png",
+  "/img/Ataur Agency.png",
+  "/img/ataur agen2.png",
+  "/img/ataur agen3.png",
+];
 
 export default function Hero() {
+  const [activeImage, setActiveImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveImage((prev) => (prev + 1) % carouselImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Animated Background */}
@@ -15,14 +32,14 @@ export default function Hero() {
         <div className="absolute inset-0">
           {/* Floating Elements */}
           <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-16 h-16 bg-purple-500 rounded-full opacity-30 animate-bounce" style={{animationDelay: '1s'}}></div>
-          <div className="absolute bottom-32 left-1/4 w-12 h-12 bg-green-500 rounded-full opacity-25 animate-pulse" style={{animationDelay: '2s'}}></div>
-          <div className="absolute top-1/3 right-10 w-24 h-24 bg-indigo-500 rounded-full opacity-15 animate-bounce" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute top-40 right-20 w-16 h-16 bg-purple-500 rounded-full opacity-30 animate-bounce" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-32 left-1/4 w-12 h-12 bg-green-500 rounded-full opacity-25 animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/3 right-10 w-24 h-24 bg-indigo-500 rounded-full opacity-15 animate-bounce" style={{ animationDelay: '0.5s' }}></div>
 
           {/* Code-like Elements */}
-          <div className="absolute top-16 right-1/4 text-white opacity-10 text-6xl animate-pulse" style={{animationDelay: '1.5s'}}>{'{ }'}</div>
-          <div className="absolute bottom-20 left-16 text-white opacity-10 text-4xl animate-bounce" style={{animationDelay: '2.5s'}}>{'</>'}</div>
-          <div className="absolute top-1/2 left-8 text-white opacity-10 text-5xl animate-pulse" style={{animationDelay: '0.8s'}}>{'⚛️'}</div>
+          <div className="absolute top-16 right-1/4 text-white opacity-10 text-6xl animate-pulse" style={{ animationDelay: '1.5s' }}>{'{ }'}</div>
+          <div className="absolute bottom-20 left-16 text-white opacity-10 text-4xl animate-bounce" style={{ animationDelay: '2.5s' }}>{'</>'}</div>
+          <div className="absolute top-1/2 left-8 text-white opacity-10 text-5xl animate-pulse" style={{ animationDelay: '0.8s' }}>{'⚛️'}</div>
         </div>
 
         {/* Moving Gradient Overlay */}
@@ -32,89 +49,33 @@ export default function Hero() {
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
 
-      {/* Content */}
-      <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-7xl mx-auto min-h-screen flex flex-col justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-6 sm:mb-8"
-        >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-            Digital Marketing &
-            <br className="hidden sm:block" />
-            <span className="block sm:inline text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-              Full Stack Development
-            </span>
-          </h1>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8">
-            <span className="bg-blue-500 bg-opacity-80 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm md:text-base font-semibold whitespace-nowrap">
-              MERN Stack
-            </span>
-            <span className="bg-purple-500 bg-opacity-80 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm md:text-base font-semibold whitespace-nowrap">
-              Next.js
-            </span>
-            <span className="bg-green-500 bg-opacity-80 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm md:text-base font-semibold whitespace-nowrap">
-              UGC/CGI Ads
-            </span>
-          </div>
-        </motion.div>
+      {/* Full-Screen Image Carousel */}
+      <div className="absolute inset-0 z-10 overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={activeImage}
+            src={carouselImages[activeImage]}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 1.5 }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
 
-        <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2"
-        >
-          Transform your business with cutting-edge digital marketing strategies and
-          powerful full-stack web applications built with MERN and Next.js technologies.
-        </motion.p>
+        {/* Overlay for depth */}
+        <div className="absolute inset-0 bg-black/30 z-20"></div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12"
-        >
-          <a
-            href="https://wa.me/7250570798"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base whitespace-nowrap"
-          >
-            🚀 Start Your Project
-          </a>
-          <Link
-            href="/projects"
-            className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-2 border-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm text-sm sm:text-base whitespace-nowrap"
-          >
-            View Portfolio
-          </Link>
-        </motion.div>
-
-        {/* Services Preview */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto px-2"
-        >
-          <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white border-opacity-20 hover:bg-opacity-20 transition-all duration-300">
-            <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">📱</div>
-            <h3 className="text-white font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Digital Marketing</h3>
-            <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">Social media campaigns, SEO, content marketing</p>
-          </div>
-          <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white border-opacity-20 hover:bg-opacity-20 transition-all duration-300">
-            <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">⚛️</div>
-            <h3 className="text-white font-semibold mb-1 sm:mb-2 text-sm sm:text-base">MERN Stack</h3>
-            <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">MongoDB, Express, React, Node.js applications</p>
-          </div>
-          <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white border-opacity-20 hover:bg-opacity-20 transition-all duration-300 sm:col-span-2 lg:col-span-1">
-            <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">🚀</div>
-            <h3 className="text-white font-semibold mb-1 sm:mb-2 text-sm sm:text-base">Next.js</h3>
-            <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">Server-side rendering, SEO-optimized websites</p>
-          </div>
-        </motion.div>
+        {/* Carousel Indicators */}
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex gap-3 z-30">
+          {carouselImages.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveImage(idx)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${activeImage === idx ? 'bg-white w-8' : 'bg-white/40 hover:bg-white/60'}`}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Scroll Indicator */}

@@ -80,8 +80,14 @@ export default function Contact() {
                 <a href="https://github.com/Ataur78615" target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-gray-700">
                   GitHub
                 </a>
-                <a href="https://vercel.com/md-ataur-ansaris-projects" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-700">
-                  Vercel
+                <a href="https://vercel.com/md-ataur-ansaris-projects" target="_blank" rel="noopener noreferrer" className="group">
+                  <div className="h-6 w-6 overflow-hidden rounded-full border border-gray-200 transition-all duration-300 group-hover:scale-110">
+                    <img
+                      src="/img/Ataur Agency.png"
+                      alt="Ataur Agency"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 </a>
               </div>
             </div>
