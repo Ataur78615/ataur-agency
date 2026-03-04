@@ -12,34 +12,34 @@ interface Message {
 
 const QA_DATA = [
     { q: "Ataur Agency kya karti hai?", a: "Hum Hotels, Retail Brands, Startups aur Growing Companies ke liye Digital Marketing (Ads), Website Development (Next.js/MERN), AI Automation (n8n) aur Cyber Security (Pen-testing) provide karte hain." },
-    { q: "Aapka main focus kya hai?", a: "Humara main focus 'Business Growth + Automation + Security' par hai taaki aapka business bina kisi rukawat ke scale kar sake." },
+    { q: "Aapka main focus kya hai?", a: "Humara main focus 'Business Growth + Automation + Security' par hai taaki aapka business bina kisi rukawat ke scale kar sake. Humara mission hai: 'Grow Your Business. Automate Your Leads. Secure Your Brand.'" },
     { q: "Aap kis type ke businesses ke saath kaam karte hain?", a: "Hum majorly Hotels, Retail Brands, Tech Startups aur Corporate Companies ke saath kaam karte hain." },
-    { q: "Aap ko dusri agencies se alag kya banata hai?", a: "Hum growth (Ads), efficiency (Automation) aur safety (Security) ka ek complete ecosystem provide karte hain, jo dusri agencies aksar alag-alag karti hain." },
-    { q: "Aapka mission kya hai?", a: "Humara mission hai: 'Grow Your Business. Automate Your Leads. Secure Your Brand.'" },
-    { q: "Aapse contact kaise karein?", a: "Aap humein WhatsApp par message ya call kar sakte hain: 7250570798. Email: atauragency@gmail.com" },
+    { q: "Aap ko dusri agencies se alag kya banata hai?", a: "Hum growth (Ads), efficiency (Automation) aur safety (Security) ka ek complete ecosystem provide karte hain. Plus, hum market rate se 50% OFF provide karte hain 3-month strategic packages par." },
+    { q: "Aapse contact kaise karein?", a: "Aap humein WhatsApp (7250570798), call, ya email (atauragency@gmail.com) kar sakte hain. Humare socials: YouTube (@Ataurtechbca), LinkedIn, FB, aur Instagram (@ataurway) par bhi hum active hain." },
 
     // Projects & Successes
-    { q: "HotelUpWala kya hai?", a: "HotelUpWala ek complete hotel solution platform hai jo listing, booking aur management ko asan banata hai. Ye MD Ataur Ansari ka ek major success project hai." },
+    { q: "HotelUpWala kya hai?", a: "HotelUpWala ek complete hotel solution platform hai jo listing, booking aur management ko asan banata hai. Ye MD Ataur Ansari ka ek major success project hai. Visit: www.hotelupwala.com" },
     { q: "Stayzzy Bloom kya hai?", a: "Stayzzy Bloom ek premium hotel website hai jo Next.js aur TypeScript se bani hai, focusing on speed aur conversions." },
-    { q: "B2B Trips project kya hai?", a: "B2B Trips ek bulk booking platform hai jo travel agents aur businesses ke liye design kiya gaya hai." },
+    { q: "B2B Trips kya hai?", a: "B2B Trips ek bulk booking platform hai jo travel agents aur businesses ke liye design kiya gaya hai. Visit: www.b2btrips.in" },
     { q: "Code Fixer AI kya hai?", a: "Ye ek AI-powered tool hai jo MERN stack aur Gemini API se bana hai, jo developers ko programming errors fix karne me help karta." },
-    { q: "College Notes Creator kya hai?", a: "Ye students ke liye ek automated platform hai jo notes create aur manage karne me help karta hai." },
+    { q: "College Notes Creator kya hai?", a: "Ye students ke liye ek automated platform hai jo notes create aur manage karne me help karta hai (MERN stack)." },
+    { q: "E-commerce Website project?", a: "Humne high-performance full-stack e-commerce platforms banaye hain using MongoDB, Express, React, aur Node.js." },
 
     // Services Detail
-    { q: "Aap kaun kaun se ads run karte ho?", a: "Hum Meta Ads (FB/IG), Google Search/Display Ads, LinkedIn Professional Ads aur direct WhatsApp Marketing Ads run karte hain." },
-    { q: "AI Automation (n8n) kya hai?", a: "n8n ek powerful workflow tool hai. Hum isse aapke leads ka 24/7 automated follow-up aur CRM management setup karte hain taaki koi lead miss na ho." },
-    { q: "Cyber Security me kya karte ho?", a: "Hum website security audits, penetration testing (loopholes find karna), aur social media account protection provide karte hain." },
-    { q: "Pricing kaise decide hoti hai?", a: "Pricing project ke complexity aur requirements par depend karti hai. Best quote ke liye contact karein: 7250570798, Email: atauragency@gmail.com" },
-    { q: "Who developed this website?", a: "This website is developed by Ataur Agency Owner MD ATAUR ANSARI using modern technologies like Next.js and Tailwind CSS." },
-    { q: "Start kaise karein?", a: "Bus ek WhatsApp message bhejiye 7250570798 par, hum baaki handle kar lenge!" },
+    { q: "Aap kaun kaun se ads run karte ho?", a: "Hum Meta Ads (FB/IG), Google Ads (Search/Display), LinkedIn Professional B2B Ads aur WhatsApp Marketing Lead Gen Funnels run karte hain." },
+    { q: "Web development me kya options hain?", a: "Hum Corporate/Startup websites, E-commerce/CRM systems, aur high-security RBAC/Multi-tenant systems banate hain using Next.js aur MERN stack." },
+    { q: "AI Automation (n8n) kya hai?", a: "n8n se hum aapke leads ka 24/7 automated follow-up aur CRM management setup karte hain. Isse leads convert hone ke chances badh jate hain." },
+    { q: "Cyber Security me kya karte ho?", a: "Hum Website Security Audits aur Penetration Testing (Web/Social) provide karte hain taaki aapka brand digital threats se safe rahe." },
+    { q: "Pricing kya hai?", a: "Hum 3-month strategic packages par 50% discount de rahe hain. Meta/Google Ads setup & management sirf ₹45,000 / $540 me starting hai. Contact for customized quotes." },
+    { q: "Who developed this website?", a: "This website is developed by Ataur Agency Owner MD ATAUR ANSARI using modern technologies like Next.js, TypeScript, and Tailwind CSS." },
 ];
 
 const SUGGESTIONS = [
+    "50% Discount details?",
     "HotelUpWala success story?",
-    "Ads performance details?",
-    "n8n AI Automation kya hai?",
-    "B2B Trips project?",
-    "Pricing & Contact?"
+    "Ads & Marketing pricing?",
+    "Cyber Security services?",
+    "Contact information?"
 ];
 
 export default function Chatbot() {
@@ -47,7 +47,7 @@ export default function Chatbot() {
     const [messages, setMessages] = useState<Message[]>([
         {
             id: 1,
-            text: "🥳 Welcome to Ataur Agency. How can I help you grow your business today?",
+            text: "🥳 Welcome to Ataur Agency. I'm your AI assistant. How can I help you grow and secure your business today?",
             sender: "bot",
             timestamp: new Date(),
         },
@@ -95,24 +95,35 @@ export default function Chatbot() {
     const findResponse = (input: string): string => {
         const lowerInput = input.toLowerCase();
 
-        // High priority checks
-        if (lowerInput.includes("price") || lowerInput.includes("pricing") || lowerInput.includes("cost") || lowerInput.includes("charge")) {
-            return "Humare paas ek 'Services Pricing Pool' hai jisme hum Market Rate se 50% OFF de rahe hain 3-month packages par. For example, Meta/Google Ads setup & management sirf ₹45,000 / $540 me available hai 3 months ke liye. Details ke liye 'Pricing' section check karein ya humein contact karein: 7250570798.";
+        if (lowerInput.includes("thank you") || lowerInput.includes("thanks") || lowerInput.includes("dhanyawad") || lowerInput.includes("shukriya")) {
+            return "Most welcome! 😊 Yaad rakhiye: 'The best time to grow was yesterday, the next best time is NOW.' Aapka business sirf ek service nahi, ek legacy hai—aur hum usay digital growth aur security ke saath ek brand banane me help karenge. 50% OFF ka fayda uthaiye aur aaj hi start karein!";
         }
-        if (lowerInput.includes("who developed") || lowerInput.includes("creator") || lowerInput.includes("owner") || lowerInput.includes("maker")) {
-            return "This website is developed by Ataur Agency Owner MD ATAUR ANSARI.";
+        if (lowerInput.includes("discount") || lowerInput.includes("offer") || lowerInput.includes("50%")) {
+            return "Hum apne 3-month strategic packages par 50% OFF de rahe hain! Iska matlab aapko high-end agency results milenge half the market cost par. WhatsApp us now: 7250570798.";
+        }
+        if (lowerInput.includes("price") || lowerInput.includes("pricing") || lowerInput.includes("cost") || lowerInput.includes("charge")) {
+            return "Humare 3-month packages ₹30,000 se shuru hote hain. Meta/Google Ads ₹45,000, Web Dev ₹60,000, aur Security Audits ₹75,000. Ye market rates se 50% kam hain. Detailed pricing ke liye humare 'Pricing' section ko dekhein ya call karein.";
+        }
+        if (lowerInput.includes("who developed") || lowerInput.includes("creator") || lowerInput.includes("owner") || lowerInput.includes("maker") || lowerInput.includes("ataur")) {
+            return "This website and Ataur Agency are founded by MD ATAUR ANSARI. He is a specialist in Web Dev, AI Automation, and Cyber Security.";
         }
         if (lowerInput.includes("refund") || lowerInput.includes("return") || lowerInput.includes("cancel")) {
-            return "Ataur Agency ki 'Strict No Refund Policy' hai. Ek baar project shuru hone ke baad koi refund nahi milta. Ads management ke liye 15-day prior notice required hai. Detail ke liye /terms page check karein.";
+            return "Ataur Agency ki 'Strict No Refund Policy' hai. Project shuru hone ke baad refund possible nahi hai. Ads management rokne ke liye 15-day notice period zaroori hai.";
         }
         if (lowerInput.includes("payment") || lowerInput.includes("advance") || lowerInput.includes("milestone")) {
-            return "Project start karne ke liye 50% advance payment mandatory hai. Balance 50% handover se pehle dena hota hai. Late payments par 5% weekly fee apply hoti hai.";
+            return "Project start karne ke liye 50% advance payment mandatory hai. Baki 50% payment project handover se pehle deni hoti hai.";
         }
-        if (lowerInput.includes("support") || lowerInput.includes("maintenance") || lowerInput.includes("bug")) {
-            return "Hum website launch ke baad 30 days tak free technical support provide karte hain. AI workflows me 1 month ki monitoring included hoti hai.";
+        if (lowerInput.includes("service") || lowerInput.includes("kaam") || lowerInput.includes("karte ho")) {
+            return "Hum 4 main categories me kaam karte hain: 1. Performance Advertising (Ads), 2. Web Development (Next.js/MERN), 3. AI Automation (n8n), 4. Cyber Security. Aapko kis bare me aur janna hai?";
         }
-        if (lowerInput.includes("contact") || lowerInput.includes("number") || lowerInput.includes("phone")) {
-            return "Aap humein WhatsApp ya Call kar sakte hain: 7250570798. Email: atauragency@gmail.com";
+        if (lowerInput.includes("project") || lowerInput.includes("kaam dikhao") || lowerInput.includes("portfolio")) {
+            return "Humare major projects me 'Hotel UP Wala', 'B2B Trips', 'Code Fixer AI', aur 'College Notes Creator' shaamil hain. Detailed portfolio 'Projects' section me available hai.";
+        }
+        if (lowerInput.includes("contact") || lowerInput.includes("number") || lowerInput.includes("phone") || lowerInput.includes("whatsapp") || lowerInput.includes("email")) {
+            return "Aap humein WhatsApp ya Call kar sakte hain: 7250570798. Email: atauragency@gmail.com. Hum aapki business growth ke liye ready hain!";
+        }
+        if (lowerInput.includes("social") || lowerInput.includes("youtube") || lowerInput.includes("facebook") || lowerInput.includes("instagram") || lowerInput.includes("linkedin") || lowerInput.includes("github")) {
+            return "Aap humein follow kar sakte hain: \n- YouTube: @Ataurtechbca\n- Instagram: @ataurway\n- LinkedIn: MD ATAUR ANSARI\n- Facebook: Ataur Agency\n- GitHub: Ataur78615";
         }
 
         // Matching from Q&A data
@@ -123,7 +134,7 @@ export default function Chatbot() {
 
         if (match) return match.a;
 
-        return "Shukriya! Aapka sawal thoda specific hai. Behtar jankari ke liye aap humare expert se Direct WhatsApp (7250570798) par baat kar sakte hain. Kya main kisi aur cheez me help kar sakta hoon?";
+        return "Maine aapki query note kar li hai, par ye thoda specific hai. Aap directly WhatsApp (7250570798) par MD ATAUR ANSARI se baat kar sakte hain for better clarity. Kya main kisi aur cheez me help kar sakta hoon?";
     };
 
     return (

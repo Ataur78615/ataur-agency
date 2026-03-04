@@ -12,14 +12,17 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="group">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-primary-500 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:border-primary-600">
+            <Link href="/" className="group flex items-center">
+              <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-blue-500 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:border-blue-600">
                 <img
                   src="/img/brand-logo.jpg"
                   alt="Ataur Agency Logo"
                   className="h-full w-full object-cover"
                 />
               </div>
+              <span className="ml-3 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 tracking-tight group-hover:scale-105 transition-transform duration-300">
+                Ataur-Agency
+              </span>
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
