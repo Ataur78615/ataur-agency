@@ -7,41 +7,49 @@ import { motion, AnimatePresence } from "framer-motion";
 const videos = [
   {
     id: 1,
-    title: "UGC Product Showcase",
+    title: "Ataur Agency Portfolio",
     category: "UGC",
-    thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop", // Mobile/Social Vibe
-    videoUrl: "https://www.youtube.com/@Ataurtechbca", // Your provided video
+    thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/31CFWRuVPtU",
   },
   {
     id: 2,
-    title: "Premium 3D Product Animation",
+    title: "UGC Product Ad Demo",
     category: "CGI Ads",
-    thumbnail: "https://images.unsplash.com/photo-1633511090164-b43840ea1607?q=80&w=1000&auto=format&fit=crop", // Abstract 3D
-    videoUrl: "https://www.youtube.com/embed/VideoID2", // Replace with actual CGI link (e.g., Blender demo)
+    thumbnail: "https://images.unsplash.com/photo-1633511090164-b43840ea1607?q=80&w=1000&auto=format&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/vbEuX7blryU",
   },
   {
     id: 3,
-    title: "Lifestyle Vlog & Review",
+    title: "AI & Tech Showcase",
     category: "UGC",
-    thumbnail: "https://images.unsplash.com/photo-1598550476439-c9483b550ea6?q=80&w=1000&auto=format&fit=crop", // Camera/Vlog
-    videoUrl: "https://www.youtube.com/embed/VideoID3", // Placeholder
+    thumbnail: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/8KVPB7DNIg0",
   },
   {
     id: 4,
-    title: "Cinematic Brand Commercial",
+    title: "Business Automation Demo",
     category: "CGI Ads",
-    thumbnail: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop", // Tech/Future
-    videoUrl: "https://www.youtube.com/embed/VideoID4", // Placeholder
+    thumbnail: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/hlG6zjCIGu0",
   },
 ];
 
+interface Video {
+  id: number;
+  title: string;
+  category: string;
+  thumbnail: string;
+  videoUrl: string;
+}
+
 export default function VideoDemo() {
-  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
 
   return (
     <section id="videos" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -74,14 +82,14 @@ export default function VideoDemo() {
                   alt={video.title}
                   className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700"
                 />
-                
+
                 {/* Dark Overlay on Hover */}
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
 
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/90 group-hover:scale-110 transition-all duration-300 border border-white/50">
-                    <svg className="w-6 h-6 text-white group-hover:text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg className="w-6 h-6 text-white group-hover:text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                   </div>
                 </div>
 

@@ -2,211 +2,144 @@
 
 import { motion } from "framer-motion";
 
+const services = [
+  {
+    title: "Performance Advertising",
+    description: "Scale your business with high-conversion campaigns across all major platforms. Lead generation and sales focused.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        <polyline points="7.5 4.21 12 6.81 16.5 4.21" />
+        <polyline points="7.5 19.79 7.5 14.6 3 12" />
+        <polyline points="21 12 16.5 14.6 16.5 19.79" />
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+        <line x1="12" y1="22.08" x2="12" y2="12" />
+      </svg>
+    ),
+    tags: ["Meta Ads", "Google Ads", "LinkedIn", "WhatsApp"],
+    color: "bg-blue-50 text-blue-600 border-blue-100",
+  },
+  {
+    title: "Web Design & Dev",
+    description: "Responsive, high-performance websites built with modern stacks. From E-commerce to Enterprise CRM systems.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </svg>
+    ),
+    tags: ["MERN Stack", "Next.js", "E-commerce", "CRM"],
+    color: "bg-emerald-50 text-emerald-600 border-emerald-100",
+  },
+  {
+    title: "AI & Automation",
+    description: "24/7 AI follow-up agents and workflow automation (n8n) to nurture leads and boost conversion rates.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2v4" /><path d="m16.2 7.8 2.9-2.9" /><path d="M18 12h4" /><path d="m16.2 16.2 2.9 2.9" /><path d="M12 18v4" /><path d="m7.8 16.2-2.9 2.9" /><path d="M2 12h4" /><path d="m7.8 7.8-2.9-2.9" /><circle cx="12" cy="12" r="3" />
+      </svg>
+    ),
+    tags: ["WhatsApp AI", "n8n", "Lead Nurturing"],
+    color: "bg-orange-50 text-orange-600 border-orange-100",
+  },
+  {
+    title: "Cyber Security",
+    description: "Protect your digital assets with advanced penetration testing, audits, and social media protection.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+    tags: ["Penetration Testing", "Security Audit", "Protection"],
+    color: "bg-red-50 text-red-600 border-red-100",
+  },
+  {
+    title: "UGC & CGI Ads",
+    description: "Engaging user-generated content and high-end CGI advertisements that captivate and convert.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m22 8-6 4 6 4V8Z" /><rect width="14" height="12" x="2" y="6" rx="2" ry="2" />
+      </svg>
+    ),
+    tags: ["UGC", "CGI Ads", "Video Marketing"],
+    color: "bg-purple-50 text-purple-600 border-purple-100",
+  },
+  {
+    title: "Enterprise Systems",
+    description: "Multi-tenant platforms, RBAC security, and complex business management systems for growth.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
+    tags: ["RBAC", "Multi-Tenant", "Admin Panels"],
+    color: "bg-indigo-50 text-indigo-600 border-indigo-100",
+  },
+];
+
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-24 bg-white relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50" />
+      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-purple-50 rounded-full blur-3xl opacity-50" />
 
-        {/* Header Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">My Services</h2>
-          <p className="text-xl text-gray-600">
-            Professional services to bring your ideas to life
+          <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 block">Our Expertise</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Services That Drive <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Growth</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            We provide complete Digital Growth, Automation, and Security Solutions for modern businesses.
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group"
+            >
+              <div className="h-full bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                {/* Accent line */}
+                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${service.color.includes('blue') ? 'from-blue-400 to-indigo-500' : service.color.includes('emerald') ? 'from-emerald-400 to-teal-500' : service.color.includes('orange') ? 'from-orange-400 to-red-500' : service.color.includes('red') ? 'from-red-400 to-pink-500' : service.color.includes('purple') ? 'from-purple-400 to-blue-500' : 'from-indigo-400 to-purple-500'} opacity-0 group-hover:opacity-100 transition-opacity`} />
 
-          {/* Card 1: UGC Video Creation */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0 }}
-            className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow border border-gray-100"
-          >
-            <div className="mb-6 flex justify-center">
-              <div className="p-4 bg-purple-50 rounded-full text-purple-600">
-                {/* Video Icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 7l-7 5 7 5V7z" /><rect x="1" y="5" width="15" height="14" rx="2" ry="2" /></svg>
+                <div className={`w-16 h-16 rounded-2xl ${service.color.split(' ')[0]} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={service.color.split(' ')[1]}>
+                    {service.icon}
+                  </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                  {service.title}
+                </h3>
+
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  {service.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {service.tags.map(tag => (
+                    <span key={tag} className={`px-3 py-1 rounded-full text-xs font-bold ${service.color.split(' ')[0]} ${service.color.split(' ')[1]} border ${service.color.split(' ')[2]}`}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-              UGC Video Creation
-            </h3>
-            <p className="text-gray-600">
-              Create engaging user-generated content videos that resonate with your audience and drive conversions.
-            </p>
-          </motion.div>
-
-          {/* Card 2: CGI Advertising */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow border border-gray-100"
-          >
-            <div className="mb-6 flex justify-center">
-              <div className="p-4 bg-indigo-50 rounded-full text-indigo-600">
-                {/* Clapperboard Icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" /><line x1="7" y1="2" x2="7" y2="22" /><line x1="17" y1="2" x2="17" y2="22" /><line x1="2" y1="12" x2="22" y2="12" /><line x1="2" y1="7" x2="7" y2="7" /><line x1="2" y1="17" x2="7" y2="17" /><line x1="17" y1="17" x2="22" y2="17" /><line x1="17" y1="7" x2="22" y2="7" /></svg>
-              </div>
-            </div>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-              CGI-Style Advertising
-            </h3>
-            <p className="text-gray-600">
-              Produce high-quality CGI advertisements that captivate viewers and elevate your brand image.
-            </p>
-          </motion.div>
-
-          {/* Card 3: Social Media Marketing */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow border border-gray-100"
-          >
-            <div className="mb-6 flex justify-center">
-              <div className="p-4 bg-blue-50 rounded-full text-blue-600">
-                {/* Target Icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M2 12h5" /><path d="M17 12h5" /><path d="M9 12h6" />
-                  <path d="M12 2v5" /><path d="M12 17v5" />
-                  <circle cx="12" cy="12" r="10" className="opacity-25" />
-                  <circle cx="12" cy="12" r="4" />
-                </svg>
-              </div>
-            </div>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-              Social Media Marketing
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Scale your business with precision targeting. We specialize in high-conversion campaigns.
-            </p>
-            <div className="flex justify-center gap-3">
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
-                Meta Ads
-              </span>
-              <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
-                Google Ads
-              </span>
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
-                LinkedIn
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Card 4: MERN Stack Developer (NEW) */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow border border-gray-100"
-          >
-            <div className="mb-6 flex justify-center">
-              <div className="p-4 bg-emerald-50 rounded-full text-emerald-600">
-                {/* Database/Stack Icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2c5.523 0 10 2.239 10 5s-4.477 5-10 5S2 9.761 2 7s4.477-5 10-5z" />
-                  <path d="M2 7v5c0 2.761 4.477 5 10 5s10-2.239 10-5V7" />
-                  <path d="M2 12v5c0 2.761 4.477 5 10 5s10-2.239 10-5v-5" />
-                </svg>
-              </div>
-            </div>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-              MERN Stack Developer
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Building robust and scalable web applications using the power of MongoDB, Express, React, and Node.js.
-            </p>
-            <div className="flex justify-center gap-2 flex-wrap">
-              <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full">
-                MongoDB
-              </span>
-              <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full">
-                Expres.js
-              </span>
-              <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full">
-                React Js
-              </span>
-              <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full">
-                Node js
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Card 5: Next.js + Typescript (NEW) */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow border border-gray-100"
-          >
-            <div className="mb-6 flex justify-center">
-              <div className="p-4 bg-slate-100 rounded-full text-slate-800">
-                {/* Code/Layers Icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="16 18 22 12 16 6" />
-                  <polyline points="8 6 2 12 8 18" />
-                </svg>
-              </div>
-            </div>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-              Next.js Full Stack
-            </h3>
-            <p className="text-gray-600 mb-6">
-              High-performance, server-side rendered applications built with Next.js and type-safe TypeScript.
-            </p>
-            <div className="flex justify-center gap-2 flex-wrap">
-              <span className="px-3 py-1 bg-slate-200 text-slate-800 text-xs font-semibold rounded-full">
-                Next.js 14
-              </span>
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
-                TypeScript
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Card 6: n8n Automation (NEW) */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow border border-gray-100"
-          >
-            <div className="mb-6 flex justify-center">
-              <div className="p-4 bg-orange-50 rounded-full text-orange-600">
-                {/* Workflow/Settings Icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2v4" /><path d="m16.2 7.8 2.9-2.9" /><path d="M18 12h4" /><path d="m16.2 16.2 2.9 2.9" /><path d="M12 18v4" /><path d="m7.8 16.2-2.9 2.9" /><path d="M2 12h4" /><path d="m7.8 7.8-2.9-2.9" /><circle cx="12" cy="12" r="3" />
-                </svg>
-              </div>
-            </div>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-              Customer Followup
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Boost your retention with automated n8n agents that handle customer followups and workflows perfectly.
-            </p>
-            <div className="flex justify-center gap-2 flex-wrap">
-              <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full">
-                n8n
-              </span>
-              <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full">
-                Automation
-              </span>
-              <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full">
-                AI Agents
-              </span>
-            </div>
-          </motion.div>
-
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

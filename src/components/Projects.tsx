@@ -79,36 +79,45 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={project.slug}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
             >
-              <div className="h-48 bg-gray-300 overflow-hidden">
+              <div className="h-56 relative overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
                   width={400}
-                  height={192}
-                  className="w-full h-full object-cover"
+                  height={224}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 mb-6 line-clamp-2 leading-relaxed">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-8">
                   {project.tech.map((tech) => (
-                    <span key={tech} className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm">
+                    <span key={tech} className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-bold border border-blue-100">
                       {tech}
                     </span>
                   ))}
                 </div>
-                <div className="flex space-x-4">
-                  <a href={project.live} className="text-blue-600 hover:text-blue-800 font-medium">
+                <div className="flex items-center justify-between pt-4 border-t border-gray-50">
+                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-600 hover:text-blue-800 font-bold text-sm transition-colors group/link">
                     Live Demo
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 transition-transform group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
                   </a>
-                  <a href={project.source} className="text-gray-600 hover:text-gray-800 font-medium">
-                    Source Code
+                  <a href={project.source} className="text-gray-500 hover:text-gray-700 text-sm font-medium transition-colors">
+                    Case Study
                   </a>
                 </div>
               </div>

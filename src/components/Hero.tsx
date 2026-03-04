@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const carouselImages = [
-  "/img/AtaAgen.jpg",
-  "/img/Ataur Agency temp.png",
-  "/img/Ataur Agency.png",
-  "/img/ataur agen2.png",
-  "/img/ataur agen3.png",
+  "/img/brand-logo.jpg",
+  "/img/brand-logo.jpg",
+  "/img/brand-logo.jpg",
+  "/img/brand-logo.jpg",
+  "/img/brand-logo.jpg",
 ];
 
 export default function Hero() {

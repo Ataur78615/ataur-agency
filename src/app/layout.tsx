@@ -51,6 +51,9 @@ export const metadata: Metadata = {
   },
 };
 
+import WhatsAppButton from "@/components/WhatsAppButton";
+import Chatbot from "@/components/Chatbot";
+
 export default function RootLayout({
   children,
 }: {
@@ -60,6 +63,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
         {children}
+        <WhatsAppButton />
+        <Chatbot />
       </body>
     </html>
   );
