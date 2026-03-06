@@ -3,8 +3,8 @@ import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Projects - MD Ataur Ansari",
-  description: "Explore the projects by MD Ataur Ansari, including UGC, CGI ads, and full-stack web development.",
+  title: "Our Projects - Ataur Agency | Portfolio of CGI, UGC & Web Apps",
+  description: "Explore our successful projects in digital marketing, cinematic CGI advertisements, and advanced full-stack web applications developed by Ataur Agency.",
 };
 
 export default function ProjectsPage() {

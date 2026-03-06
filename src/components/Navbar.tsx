@@ -49,7 +49,9 @@ export default function Navbar() {
             <a href="https://www.linkedin.com/in/md-ataur-ansari-b18790271/recent-activity/all/" target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900">
               👔
             </a>
-
+            <Link href="/admin/login" className="px-4 py-1.5 rounded-full bg-gray-900 text-white text-xs font-bold hover:bg-blue-600 transition-all shadow-md">
+              Admin
+            </Link>
           </div>
           <div className="md:hidden flex items-center">
             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 hover:text-gray-900">
@@ -74,6 +76,7 @@ export default function Navbar() {
                 <Link href="/services" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all">Services</Link>
                 <Link href="/#pricing" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all">Pricing</Link>
                 <Link href="/contact" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all">Contact</Link>
+                <Link href="/admin/login" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-blue-600 hover:bg-blue-50 rounded-xl transition-all">Admin Dashboard</Link>
 
                 <div className="pt-4 flex items-center space-x-6 justify-center border-t border-gray-50 mt-4">
                   <a href="https://www.youtube.com/@Ataurtechbca" target="_blank" rel="noopener noreferrer" className="text-2xl">📺</a>

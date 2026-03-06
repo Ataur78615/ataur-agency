@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const services = [
   {
@@ -103,16 +104,11 @@ export default function Services() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
-            >
-              <div className="h-full bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+          {services.map((service, index) => {
+            const isPerformanceAds = service.title === "Performance Advertising";
+
+            const cardContent = (
+              <>
                 {/* Accent line */}
                 <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${service.color.includes('blue') ? 'from-blue-400 to-indigo-500' : service.color.includes('emerald') ? 'from-emerald-400 to-teal-500' : service.color.includes('orange') ? 'from-orange-400 to-red-500' : service.color.includes('red') ? 'from-red-400 to-pink-500' : service.color.includes('purple') ? 'from-purple-400 to-blue-500' : 'from-indigo-400 to-purple-500'} opacity-0 group-hover:opacity-100 transition-opacity`} />
 
@@ -137,9 +133,68 @@ export default function Services() {
                     </span>
                   ))}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </>
+            );
+
+            return (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group cursor-pointer"
+              >
+                {isPerformanceAds ? (
+                  <Link
+                    href="/services/performance-advertising"
+                    className="block h-full bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+                  >
+                    {cardContent}
+                  </Link>
+                ) : service.title === "Web Design & Dev" ? (
+                  <Link
+                    href="/services/web-design-development"
+                    className="block h-full bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+                  >
+                    {cardContent}
+                  </Link>
+                ) : service.title === "AI & Automation" ? (
+                  <Link
+                    href="/services/ai-automation"
+                    className="block h-full bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+                  >
+                    {cardContent}
+                  </Link>
+                ) : service.title === "Cyber Security" ? (
+                  <Link
+                    href="/services/cyber-security"
+                    className="block h-full bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+                  >
+                    {cardContent}
+                  </Link>
+                ) : service.title === "UGC & CGI Ads" ? (
+                  <Link
+                    href="/services/ugc-cgi-ads"
+                    className="block h-full bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+                  >
+                    {cardContent}
+                  </Link>
+                ) : service.title === "Enterprise Systems" ? (
+                  <Link
+                    href="/services/enterprise-systems"
+                    className="block h-full bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+                  >
+                    {cardContent}
+                  </Link>
+                ) : (
+                  <div className="block h-full bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                    {cardContent}
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

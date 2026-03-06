@@ -6,10 +6,16 @@ import { useState, useEffect } from "react";
 
 const carouselImages = [
   "/img/brand-logo.jpg",
-  "/img/brand-logo.jpg",
-  "/img/brand-logo.jpg",
-  "/img/brand-logo.jpg",
-  "/img/brand-logo.jpg",
+  "/img/AtaAgen.jpg",
+  "/img/Ataur Agency slider 1.jpg",
+  "/img/Ataur Agency slider 4.jpg",
+  "/img/Ataur Agency slider 5.jpg",
+  "/img/Ataur Agency temp.png",
+  "/img/Ataur Agency.png",
+  "/img/Ataur Agnecy slider 2.jpg",
+  "/img/Ataur Agnecy slider 3.jpg",
+  "/img/ataur agen2.png",
+  "/img/ataur agen3.png",
 ];
 
 export default function Hero() {
@@ -18,11 +24,11 @@ export default function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveImage((prev) => (prev + 1) % carouselImages.length);
-    }, 4000);
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
       {/* Animated Background */}
       <div className="absolute inset-0 z-0">
         {/* Gradient Background */}
@@ -78,12 +84,44 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Content Overlay */}
+      <div className="relative z-30 container mx-auto px-4 text-center text-white">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+            Best Digital Marketing Agency in <span className="text-blue-400">Patna & Pan India</span>
+          </h1>
+          <h2 className="text-xl md:text-2xl font-medium mb-8 text-blue-100">
+            Ataur Agency provides result-driven SEO, PPC, social media marketing, and modern web development using React, Node.js, Next.js for businesses across Jharkhand, Noida, Delhi.
+          </h2>
+          
+          <div className="bg-black/40 backdrop-blur-md p-6 md:p-8 rounded-3xl border border-white/10 mb-10">
+            <p className="text-lg md:text-xl leading-relaxed text-gray-200">
+              Ataur Agency aapka trusted partner hai best digital marketing services ke liye Patna, Noida, Delhi, Jharkhand aur pan India. Humare SEO experts high-traffic keywords target karte hain, PPC campaigns maximum ROI dete hain, aur React/Node.js web development modern, fast websites banate hain. Social media marketing aur UGC/CGI ads se aapke business ko explosive growth milega.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-xl">
+              Get Started Now
+            </Link>
+            <Link href="/services" className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">
+              Explore Services
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+
       {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
       >
         <div className="animate-bounce">
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

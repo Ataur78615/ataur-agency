@@ -23,22 +23,22 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'images.pexels.com', // --- NAYA PEXELS HOSTNAME ---
       },
-       {
+      {
         protocol: 'https',
-        hostname: 'google.com', 
+        hostname: 'google.com',
       },
-        {
-            protocol: 'https',
-            hostname: 'media.istockphoto.com', // iStock images ke liye
-          },
-           {
-            protocol: 'https',
-            hostname: 'media.istockphoto.com', // iStock images ke liye
-          },
-           {
-            protocol: 'https',
-            hostname: 'img.hexahome.in', // Hexahome images ke liye
-          },
+      {
+        protocol: 'https',
+        hostname: 'media.istockphoto.com', // iStock images ke liye
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.istockphoto.com', // iStock images ke liye
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.hexahome.in', // Hexahome images ke liye
+      },
       // scai.in
       {
         protocol: 'https',
@@ -50,7 +50,7 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
-        {
+      {
         protocol: "https",
         hostname: "drive.google.com",
         pathname: "/uc/**",
@@ -83,6 +83,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "encrypted-tbn0.gstatic.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.hotelupwala.com",
       },
     ],
   },

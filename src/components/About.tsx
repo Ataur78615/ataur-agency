@@ -12,8 +12,10 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">About Me</h2>
-          <p className="text-xl text-gray-600">Passionate about creating impactful digital experiences</p>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Ataur Agency?</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Ataur Agency provides industry-leading digital marketing and development specialized for businesses in Patna, Noida, Delhi, and Pan India.
+          </p>
         </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <motion.div
@@ -103,6 +105,21 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="space-y-6 lg:ml-12"
           >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                <h4 className="font-bold text-xl mb-2 text-blue-900">Proven SEO Results</h4>
+                <p className="text-gray-600 text-sm">Rank #1 for "digital marketing near me" searches with our expert optimization.</p>
+              </div>
+              <div className="bg-purple-50 p-6 rounded-2xl border border-purple-100">
+                <h4 className="font-bold text-xl mb-2 text-purple-900">Expert Web Development</h4>
+                <p className="text-gray-600 text-sm">React, Node.js, Next.js for fast, modern, and high-performance websites.</p>
+              </div>
+              <div className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100">
+                <h4 className="font-bold text-xl mb-2 text-indigo-900">UGC/CGI Ads</h4>
+                <p className="text-gray-600 text-sm">High ROI campaigns for lead generation using cutting-edge video tech.</p>
+              </div>
+            </div>
+
             <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
               <span className="mr-3">✔️</span> Notable Successes
             </h3>

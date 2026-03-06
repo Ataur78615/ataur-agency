@@ -3,8 +3,8 @@ import About from "@/components/About";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "About - MD Ataur Ansari",
-  description: "Learn more about MD Ataur Ansari, a UGC Creator, CGI Ads Specialist, and MERN & Next.js Developer.",
+  title: "About Us - Ataur Agency | Top Digital Marketing Experts in India",
+  description: "Learn about Ataur Agency and MD Ataur Ansari, a leader in UGC creation, CGI advertising, and full-stack web development (MERN/Next.js) based in Patna, India.",
 };
 
 export default function AboutPage() {

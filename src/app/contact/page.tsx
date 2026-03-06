@@ -3,8 +3,8 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Contact - MD Ataur Ansari",
-  description: "Get in touch with MD Ataur Ansari for UGC creation, CGI ads, and full-stack development services.",
+  title: "Contact Us - Ataur Agency | Digital Marketing & Web Development Patna",
+  description: "Get in touch with Ataur Agency for top-rated SEO, PPC, and individual web development services. Contact our experts in Patna, India for high-converting ads and websites.",
 };
 
 export default function ContactPage() {
