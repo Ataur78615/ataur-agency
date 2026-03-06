@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongodb";
 import PaymentData from "@/models/PaymentData";
+import { verifyAdmin } from "@/lib/adminAuth";
 
 export async function POST(req: Request) {
     try {
         const authHeader = req.headers.get("x-admin-auth");
-        if (authHeader !== "AtaurA@@26") {
+        if (!(await verifyAdmin(authHeader))) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
 

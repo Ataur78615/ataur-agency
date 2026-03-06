@@ -3,11 +3,12 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Lock, Mail, ArrowRight, Loader2, ShieldCheck } from "lucide-react";
+import { Lock, Mail, ArrowRight, Loader2, ShieldCheck, Eye, EyeOff } from "lucide-react";
 
 export default function AdminLogin() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const router = useRouter();
@@ -17,17 +18,29 @@ export default function AdminLogin() {
         setLoading(true);
         setError("");
 
-        // Simulated check based on user requirements
-        if (email === "atauragency@gmail.com" && password === "AtaurA@@26") {
-            // Store the password as the token for simple API auth
-            localStorage.setItem("admin_auth", password);
-            
-            // Short delay for better UX
-            setTimeout(() => {
-                router.push("/admin/dashboard");
-            }, 800);
-        } else {
-            setError("Invalid credentials. Please try again.");
+        try {
+            const res = await fetch("/api/admin/auth/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                // Store the password (or token) for simple API auth
+                localStorage.setItem("admin_auth", password);
+                
+                // Short delay for better UX
+                setTimeout(() => {
+                    router.push("/admin/dashboard");
+                }, 800);
+            } else {
+                setError(data.error || "Invalid credentials. Please try again.");
+                setLoading(false);
+            }
+        } catch (err) {
+            setError("Connection error. Please try again later.");
             setLoading(false);
         }
     };
@@ -88,13 +101,24 @@ export default function AdminLogin() {
                                     <Lock className="h-5 w-5 text-gray-400" />
                                 </div>
                                 <input
-                                    type="password"
+                                    type={showPassword ? "text" : "password"}
                                     required
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="block w-full pl-11 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-sm"
+                                    className="block w-full pl-11 pr-12 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-sm"
                                     placeholder="••••••••"
                                 />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-blue-600 transition-colors"
+                                >
+                                    {showPassword ? (
+                                        <EyeOff className="h-5 w-5" />
+                                    ) : (
+                                        <Eye className="h-5 w-5" />
+                                    )}
+                                </button>
                             </div>
                         </div>
 
