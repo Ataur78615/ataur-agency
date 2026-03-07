@@ -64,31 +64,73 @@ export default function Navbar() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden overflow-hidden bg-white border-t border-gray-100"
+              initial={{ opacity: 0, height: 0, backdropFilter: "blur(0px)" }}
+              animate={{ opacity: 1, height: "auto", backdropFilter: "blur(12px)" }}
+              exit={{ opacity: 0, height: 0, backdropFilter: "blur(0px)" }}
+              className="md:hidden overflow-hidden bg-white/90 border-t border-gray-100/50 sticky top-16 left-0 w-full shadow-2xl z-50"
             >
-              <div className="px-4 pt-2 pb-6 space-y-2">
-                <Link href="/" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all">Home</Link>
-                <Link href="/about" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all">About</Link>
-                <Link href="/projects" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all">Projects</Link>
-                <Link href="/services" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all">Services</Link>
-                <Link href="/#pricing" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all">Pricing</Link>
-                <Link href="/contact" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all">Contact</Link>
-                <Link href="/admin/login" onClick={() => setIsOpen(false)} className="block px-3 py-3 text-base font-medium text-blue-600 hover:bg-blue-50 rounded-xl transition-all">Admin Dashboard</Link>
+              <div className="px-5 pt-4 pb-12 space-y-4 max-h-[calc(100vh-5rem)] overflow-y-auto custom-scrollbar">
+                <div className="grid grid-cols-1 gap-1.5">
+                  {[
+                    { href: "/", label: "Home", icon: "🏠", color: "blue" },
+                    { href: "/about", label: "About", icon: "ℹ️", color: "indigo" },
+                    { href: "/projects", label: "Projects", icon: "🚀", color: "purple" },
+                    { href: "/services", label: "Services", icon: "🛠️", color: "emerald" },
+                    { href: "/#pricing", label: "Pricing", icon: "💰", color: "amber" },
+                    { href: "/contact", label: "Contact", icon: "📞", color: "rose" },
+                  ].map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`flex items-center gap-4 px-5 py-4 text-[17px] font-bold text-gray-800 hover:text-${item.color}-600 hover:bg-${item.color}-50/40 rounded-[1.5rem] transition-all border border-transparent hover:border-${item.color}-100 active:scale-[0.98]`}
+                    >
+                      <span className={`w-11 h-11 bg-${item.color}-50 rounded-2xl flex items-center justify-center text-xl shadow-sm border border-${item.color}-100/50`}>
+                        {item.icon}
+                      </span>
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
 
-                <div className="pt-4 flex items-center space-x-6 justify-center border-t border-gray-50 mt-4">
-                  <a href="https://www.youtube.com/@Ataurtechbca" target="_blank" rel="noopener noreferrer" className="text-2xl">📺</a>
-                  <a href="https://www.facebook.com/profile.php?id=100075557272259" target="_blank" rel="noopener noreferrer" className="text-2xl">📘</a>
-                  <a href="https://www.instagram.com/ataurway/" target="_blank" rel="noopener noreferrer" className="text-2xl">📷</a>
-                  <a href="https://github.com/Ataur78615" target="_blank" rel="noopener noreferrer" className="text-2xl">💻</a>
-                  <a href="https://www.linkedin.com/in/md-ataur-ansari-b18790271/recent-activity/all/" target="_blank" rel="noopener noreferrer" className="text-2xl">👔</a>
+                <div className="pt-6 mt-2 border-t border-gray-100">
+                  <Link 
+                    href="/admin/login" 
+                    onClick={() => setIsOpen(false)} 
+                    className="flex items-center justify-between px-7 py-5 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 text-white rounded-[2rem] font-black text-lg shadow-xl shadow-blue-900/10 active:scale-[0.97] transition-all group"
+                  >
+                    <span>Admin Dashboard</span>
+                    <span className="bg-white/20 p-2.5 rounded-full group-hover:rotate-12 transition-transform">🔐</span>
+                  </Link>
+                </div>
+
+                <div className="pt-8 text-center bg-gray-50/50 rounded-[2.5rem] pb-6 border border-gray-100/50">
+                  <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-6">Connect With Us</p>
+                  <div className="flex items-center justify-center gap-3 px-4">
+                    {[
+                      { href: "https://www.youtube.com/@Ataurtechbca", icon: "📺", color: "red", bg: "bg-red-50", text: "text-red-600" },
+                      { href: "https://www.facebook.com/profile.php?id=100075557272259", icon: "📘", color: "blue", bg: "bg-blue-50", text: "text-blue-600" },
+                      { href: "https://www.instagram.com/ataurway/", icon: "📷", color: "pink", bg: "bg-pink-50", text: "text-pink-600" },
+                      { href: "https://github.com/Ataur78615", icon: "💻", color: "gray", bg: "bg-gray-100", text: "text-gray-900" },
+                      { href: "https://www.linkedin.com/in/md-ataur-ansari-b18790271/recent-activity/all/", icon: "👔", color: "linkedin", bg: "bg-blue-100", text: "text-blue-700" },
+                    ].map((social, i) => (
+                      <a
+                        key={i}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`w-12 h-12 ${social.bg} ${social.text} rounded-2xl flex items-center justify-center text-xl shadow-sm hover:scale-110 active:scale-90 transition-all border border-black/5`}
+                      >
+                        {social.icon}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
+
       </div>
     </nav>
   );

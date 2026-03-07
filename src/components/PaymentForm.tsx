@@ -21,6 +21,8 @@ export default function PaymentForm({ isOpen, onClose, serviceType, amount, onSu
         whatsapp: "",
         utr: "",
     });
+    const [isAgreed, setIsAgreed] = useState(false);
+    const [showAgreementError, setShowAgreementError] = useState(false);
 
     const upiId = "www.mdataur7250570798@ybl";
     const upiLink = `upi://pay?pa=${upiId}&pn=MD%20ATAUR&am=${amount}&cu=INR&tn=Payment%20for%20${encodeURIComponent(serviceType)}`;
@@ -177,6 +179,38 @@ export default function PaymentForm({ isOpen, onClose, serviceType, amount, onSu
                                         </p>
                                     </div>
 
+                                    {/* Agreement Checkbox for Cyber Security */}
+                                    {(serviceType.toLowerCase().includes("security") || serviceType.toLowerCase().includes("penetration")) && (
+                                        <div className="mb-6 px-4 py-3 bg-red-50 rounded-2xl border border-red-100 text-left">
+                                            <label className="flex items-start gap-3 cursor-pointer group">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={isAgreed}
+                                                    onChange={(e) => {
+                                                        setIsAgreed(e.target.checked);
+                                                        if (e.target.checked) setShowAgreementError(false);
+                                                    }}
+                                                    className="mt-1 w-4 h-4 rounded border-red-300 text-red-600 focus:ring-red-500"
+                                                />
+                                                <span className="text-[11px] leading-tight text-red-900 font-medium">
+                                                    I confirm that I am the legal owner or authorized administrator of the system and authorize Ataur Agency to perform penetration testing on the specified assets. 
+                                                    <a 
+                                                        href="/services/cyber-security/agreement" 
+                                                        target="_blank" 
+                                                        className="ml-1 text-red-600 font-bold underline hover:text-red-700"
+                                                    >
+                                                        Read more
+                                                    </a>
+                                                </span>
+                                            </label>
+                                            {showAgreementError && (
+                                                <p className="text-[10px] text-red-600 font-bold mt-1 ml-7 italic underline animate-pulse">
+                                                    Required: Please read and agree to continue
+                                                </p>
+                                            )}
+                                        </div>
+                                    )}
+
                                     <div className="flex flex-col gap-3">
                                         <a
                                             href={directWhatsappUrl}
@@ -188,7 +222,13 @@ export default function PaymentForm({ isOpen, onClose, serviceType, amount, onSu
                                         </a>
 
                                         <button
-                                            onClick={() => setStep("verify")}
+                                            onClick={() => {
+                                                if ((serviceType.toLowerCase().includes("security") || serviceType.toLowerCase().includes("penetration")) && !isAgreed) {
+                                                    setShowAgreementError(true);
+                                                    return;
+                                                }
+                                                setStep("verify");
+                                            }}
                                             className="w-full py-4 bg-gray-900 hover:bg-black text-white rounded-2xl font-black text-lg transition-all shadow-xl flex items-center justify-center gap-2"
                                         >
                                             I HAVE PAID & VERIFY ✅

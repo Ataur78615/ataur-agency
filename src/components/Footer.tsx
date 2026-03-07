@@ -58,10 +58,10 @@ export default function Footer() {
               Navigation
             </h4>
             <ul className="space-y-4">
-              {['Home', 'About', 'Projects', 'Services', 'Terms', 'Contact'].map((item) => (
+              {['Home', 'About', 'Projects', 'Services', 'Terms', 'Career', 'Contact'].map((item) => (
                 <li key={item}>
                   <Link
-                    href={item === 'Home' ? '/' : item === 'Terms' ? '/terms' : `/#${item.toLowerCase()}`}
+                    href={item === 'Home' ? '/' : item === 'Terms' ? '/terms' : item === 'Career' ? '/careers' : `/#${item.toLowerCase()}`}
                     className="text-gray-400 hover:text-white transition-all duration-300 flex items-center group"
                   >
                     <span className="w-0 group-hover:w-2 h-0.5 bg-blue-500 mr-0 group-hover:mr-2 transition-all"></span>
