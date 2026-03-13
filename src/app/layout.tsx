@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Poppins, Space_Grotesk } from "next/font/google";
+import { Inter, Poppins, Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const interAccess = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-plus-jakarta" });
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700"] });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
 export const metadata: Metadata = {
-  title: "Best Digital Marketing Agency Patna | SEO PPC Web Development - Ataur Agency",
-  description: "Ataur Agency - Best digital marketing agency in Patna, Noida, Delhi, Jharkhand & Pan India. Expert SEO, PPC, SMM, React/Node.js web development, UGC ads for top leads & growth.",
+  title: "Best Digital Marketing Agency Jharkhand | SEO PPC Web Development - Ataur Agency",
+  description: "Ataur Agency - Best digital marketing agency in Jharkhand, Noida, Delhi, Patna & Pan India. Expert SEO, PPC, SMM, React/Node.js web development, UGC ads for top leads & growth.",
   keywords: [
     "digital marketing agency India", "best digital marketing agency", "digital marketing agency near me",
     "best SEO company in India", "PPC agency India", "social media marketing India",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     "affordable digital marketing India", "best agency for SEO", "website development near me",
     "digital marketing expert India", "Google Ads agency India", "Facebook marketing agency",
     "Instagram marketing services", "React development company India", "Node.js development India",
-    "Python web development", "hire digital marketer India", "best digital marketing in Patna",
+    "Python web development", "hire digital marketer India", "best digital marketing in Jharkhand",
     "local SEO services India", "e-commerce website development", "WordPress development agency",
     "mobile app development India", "influencer marketing agency", "email marketing services India",
     "video marketing agency", "best web developer near me", "digital marketing course India",
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
   creator: "MD Ataur Ansari",
   openGraph: {
     title: "Ataur Agency - Leading Digital Marketing & Tech Solutions",
-    description: "Expert digital marketing, SEO, and web development services to scale your business. Patna's top-rated agency.",
+    description: "Expert digital marketing, SEO, and web development services to scale your business. Jharkhand's top-rated agency.",
     url: "https://ataur-ansari.vercel.app",
     siteName: "Ataur Agency",
     images: [
@@ -96,7 +97,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${interAccess.variable} ${plusJakartaSans.variable} font-sans antialiased`}>
         {children}
         <WhatsAppButton />
         <Chatbot />

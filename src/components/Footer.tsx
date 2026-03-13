@@ -124,7 +124,7 @@ export default function Footer() {
               {[
                 { name: 'YT', color: 'hover:bg-red-600', link: 'https://www.youtube.com/@Ataurtechbca' },
                 { name: 'FB', color: 'hover:bg-blue-600', link: 'https://www.facebook.com/profile.php?id=100075557272259' },
-                { name: 'IG', color: 'hover:bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600', link: 'https://www.instagram.com/ataurway/' },
+                { name: 'IG', color: 'hover:bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600', link: 'https://www.instagram.com/atauragency?igsh=NGg5ZWRmeXBxMHhm' },
                 { name: 'GH', color: 'hover:bg-gray-700', link: 'https://github.com/Ataur78615' },
                 { name: 'LI', color: 'hover:bg-blue-700', link: 'https://www.linkedin.com/in/md-ataur-ansari-b18790271/recent-activity/all/' }
               ].map((social) => (

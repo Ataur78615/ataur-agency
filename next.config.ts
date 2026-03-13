@@ -86,6 +86,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "www.b2btrips.in",
+      },
+      {
+        protocol: "https",
         hostname: "www.hotelupwala.com",
       },
     ],

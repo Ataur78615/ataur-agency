@@ -14,7 +14,7 @@ export default function About() {
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Ataur Agency?</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ataur Agency provides industry-leading digital marketing and development specialized for businesses in Patna, Noida, Delhi, and Pan India.
+            Ataur Agency provides industry-leading digital marketing and development specialized for businesses in Jharkhand, Noida, Delhi, and Pan India.
           </p>
         </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

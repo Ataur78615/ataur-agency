@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { ArrowUpRight, Sparkles, Rocket, Zap, Target, TrendingUp } from "lucide-react";
+import Magnetic from "./Magnetic";
 
 const carouselImages = [
   "/img/brand-logo.jpg",
@@ -10,7 +12,6 @@ const carouselImages = [
   "/img/Ataur Agency slider 1.jpg",
   "/img/Ataur Agency slider 4.jpg",
   "/img/Ataur Agency slider 5.jpg",
-  "/img/Ataur Agency temp.png",
   "/img/Ataur Agency.png",
   "/img/Ataur Agnecy slider 2.jpg",
   "/img/Ataur Agnecy slider 3.jpg",
@@ -24,111 +25,122 @@ export default function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveImage((prev) => (prev + 1) % carouselImages.length);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
+
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Animated Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900"></div>
-
-        {/* Animated Particles/Shapes */}
-        <div className="absolute inset-0">
-          {/* Floating Elements */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-16 h-16 bg-purple-500 rounded-full opacity-30 animate-bounce" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-32 left-1/4 w-12 h-12 bg-green-500 rounded-full opacity-25 animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/3 right-10 w-24 h-24 bg-indigo-500 rounded-full opacity-15 animate-bounce" style={{ animationDelay: '0.5s' }}></div>
-
-          {/* Code-like Elements */}
-          <div className="absolute top-16 right-1/4 text-white opacity-10 text-6xl animate-pulse" style={{ animationDelay: '1.5s' }}>{'{ }'}</div>
-          <div className="absolute bottom-20 left-16 text-white opacity-10 text-4xl animate-bounce" style={{ animationDelay: '2.5s' }}>{'</>'}</div>
-          <div className="absolute top-1/2 left-8 text-white opacity-10 text-5xl animate-pulse" style={{ animationDelay: '0.8s' }}>{'⚛️'}</div>
-        </div>
-
-        {/* Moving Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-5 animate-pulse transform -skew-x-12"></div>
-      </div>
-
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
-
-      {/* Full-Screen Image Carousel */}
-      <div className="absolute inset-0 z-10 overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={activeImage}
-            src={carouselImages[activeImage]}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 1.5 }}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </AnimatePresence>
-
-        {/* Overlay for depth */}
-        <div className="absolute inset-0 bg-black/30 z-20"></div>
-
-        {/* Carousel Indicators */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex gap-3 z-30">
-          {carouselImages.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setActiveImage(idx)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${activeImage === idx ? 'bg-white w-8' : 'bg-white/40 hover:bg-white/60'}`}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Content Overlay */}
-      <div className="relative z-30 container mx-auto px-4 text-center text-white">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
-        >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
-            Best Digital Marketing Agency in <span className="text-blue-400">Patna & Pan India</span>
-          </h1>
-          <h2 className="text-xl md:text-2xl font-medium mb-8 text-blue-100">
-            Ataur Agency provides result-driven SEO, PPC, social media marketing, and modern web development using React, Node.js, Next.js for businesses across Jharkhand, Noida, Delhi.
-          </h2>
+    <section className="min-h-screen pt-24 pb-12 px-4 bg-background overflow-hidden">
+      <div className="max-w-7xl mx-auto h-full">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 min-h-[calc(100vh-160px)]">
           
-          <div className="bg-black/40 backdrop-blur-md p-6 md:p-8 rounded-3xl border border-white/10 mb-10">
-            <p className="text-lg md:text-xl leading-relaxed text-gray-200">
-              Ataur Agency aapka trusted partner hai best digital marketing services ke liye Patna, Noida, Delhi, Jharkhand aur pan India. Humare SEO experts high-traffic keywords target karte hain, PPC campaigns maximum ROI dete hain, aur React/Node.js web development modern, fast websites banate hain. Social media marketing aur UGC/CGI ads se aapke business ko explosive growth milega.
+          {/* Main Headline - Big Typography - Span 3 cols, 3 rows */}
+          <div className="md:col-span-3 md:row-span-3 glass-card p-6 md:p-12 flex flex-col justify-center relative overflow-hidden group min-h-[350px]">
+            <div className="absolute top-0 right-0 p-6 opacity-10 pointer-events-none group-hover:rotate-12 transition-transform duration-700">
+               <Sparkles size={120} className="text-blue-500" />
+            </div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-[10px] md:text-sm font-bold w-fit mb-4 md:mb-6"
+            >
+              <Zap size={14} className="fill-current" />
+              <span>India's Top-Rated Digital Agency</span>
+            </motion.div>
+            
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] dark:text-white mb-4 md:mb-6 kinetic-text uppercase break-words">
+              Best Digital <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+                Marketing
+              </span> <br className="hidden md:block" />
+              Agency in <span className="text-blue-600 dark:text-blue-400">Jharkhand</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
+              Result-driven SEO, PPC, and High-Performance Web Apps. Scaling businesses across 
+              <span className="font-bold text-gray-900 dark:text-white"> Jharkhand, Noida, & Delhi.</span>
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-xl">
-              Get Started Now
-            </Link>
-            <Link href="/services" className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">
-              Explore Services
-            </Link>
+          {/* 50% Savings Badge - Span 1 col, 1 row */}
+          <div className="md:col-span-1 md:row-span-1 bg-gradient-to-br from-orange-500 to-red-600 p-6 rounded-[2rem] flex flex-col items-center justify-center text-white shadow-xl shadow-orange-500/20 relative overflow-hidden group min-h-[160px]">
+            <motion.div 
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-4 -right-4 bg-white/20 p-8 rounded-full blur-2xl" 
+            />
+            <span className="text-[10px] font-bold uppercase tracking-widest opacity-80">Limited Offer</span>
+            <div className="text-4xl md:text-5xl font-black">50%</div>
+            <span className="text-sm md:text-lg font-bold">SAVINGS</span>
+            <div className="mt-2 text-[10px] text-center font-medium opacity-90">On all Enterprise Systems & CRM Solutions</div>
           </div>
-        </motion.div>
-      </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
-      >
-        <div className="animate-bounce">
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+          {/* Quick CTA Box - Span 1 col, 2 rows */}
+          <div className="md:col-span-1 md:row-span-2 glass-card p-6 flex flex-col justify-between group cursor-pointer hover:border-blue-500/50 transition-all border-glow-hover min-h-[200px]">
+            <div className="w-12 h-12 rounded-2xl bg-blue-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform">
+               <Rocket size={24} />
+            </div>
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold mb-2">Ready to Scale?</h3>
+              <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-4">Start your journey with a free strategy audit.</p>
+              <Magnetic>
+                <Link href="/contact" className="flex items-center gap-2 text-blue-600 font-bold group/btn text-sm md:text-base">
+                  Get Started <ArrowUpRight size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                </Link>
+              </Magnetic>
+            </div>
+          </div>
+
+          {/* Image Carousel Bento Item - Span 2 cols, 3 rows */}
+          <div className="md:col-span-2 md:row-span-3 glass-card relative overflow-hidden group min-h-[300px]">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={activeImage}
+                src={carouselImages[activeImage]}
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 1 }}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </AnimatePresence>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            
+            <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+              <div>
+                <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1">Our Showcase</p>
+                <h4 className="text-white text-lg md:text-xl font-bold">Successful Projects & Brands</h4>
+              </div>
+              <div className="flex gap-1.5">
+                {carouselImages.slice(0, 5).map((_, idx) => (
+                  <div key={idx} className={`w-2 h-2 rounded-full transition-all ${Math.floor(activeImage/2) === idx ? 'bg-white w-6' : 'bg-white/30'}`} />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Trust Meter/Stats - Span 2 cols, 1 row */}
+          <div className="md:col-span-2 md:row-span-1 glass-card p-6 flex items-center justify-around border-glow-hover min-h-[120px]">
+             <div className="text-center">
+               <div className="text-2xl md:text-3xl font-black text-blue-600">500+</div>
+               <div className="text-[10px] font-bold text-gray-500 uppercase tracking-tighter">Leads Generated</div>
+             </div>
+             <div className="w-px h-10 bg-gray-200 dark:bg-gray-800" />
+             <div className="text-center">
+               <div className="text-2xl md:text-3xl font-black text-indigo-600">100+</div>
+               <div className="text-[10px] font-bold text-gray-500 uppercase tracking-tighter">Projects Delivered</div>
+             </div>
+             <div className="w-px h-10 bg-gray-200 dark:bg-gray-800" />
+             <div className="text-center">
+               <div className="text-2xl md:text-3xl font-black text-purple-600">98%</div>
+               <div className="text-[10px] font-bold text-gray-500 uppercase tracking-tighter">Client Satisfaction</div>
+             </div>
+          </div>
+
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
