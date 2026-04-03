@@ -8,6 +8,18 @@ import { ExternalLink, ChevronRight, Layout, Zap, Trophy, ShieldCheck } from "lu
 
 const projects = [
   {
+    title: "Invest Secure",
+    description: "Professional Income Investment & Wealth Management Platform",
+    problem: "Users struggled to find a secure, intuitive platform that compelled them to strategically invest their income for long-term growth.",
+    solution: "A highly professional, visually stunning dashboard that builds instant trust and simplifies complex investment strategies.",
+    result: "Significantly increased user engagement and compelled higher initial capital investments through premium UX.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    image: "/img/invest-secure.png",
+    slug: "invest-secure",
+    live: "https://www.investsecure.live/",
+    color: "from-green-600 to-emerald-800",
+  },
+  {
     title: "Hotel UP Wala",
     description: "Hotel Booking & listing website built with Next.js and TypeScript",
     problem: "Hotel owners struggled with manual bookings and fragmented listings in the local region.",
@@ -50,7 +62,7 @@ const projects = [
     solution: "An AI-enhanced debugger that suggests fixes and explains the underlying issues.",
     result: "Average debugging time reduced by 50% for common React/Next.js errors.",
     tech: ["MongoDB", "Express", "React", "Node.js", "Gemini API"],
-    image: "https://www.shutterstock.com/image-vector/software-testing-web-concept-flat-260nw-2562454535.jpg",
+    image: "/img/hotel-up-wala-logo.jpeg",
     slug: "code-fixer-ai",
     live: "#",
     color: "from-indigo-600 to-purple-600",
@@ -88,6 +100,11 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
                <Trophy size={24} />
             </div>
             <h3 className="text-3xl font-black text-white drop-shadow-lg">{project.title}</h3>
+            {project.live !== "#" && (
+              <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-white/90 hover:text-white text-sm mt-2 flex items-center gap-1 w-fit bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 transition-all hover:bg-black/60">
+                {project.live.replace(/^https?:\/\//, '').replace(/\/$/, '')} <ExternalLink size={12} />
+              </a>
+            )}
           </div>
         </div>
 
@@ -139,10 +156,10 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
           </div>
 
           <div className="flex items-center justify-between pt-8 border-t border-black/5 dark:border-white/5 mt-8">
-            <a href={project.live} target="_blank" rel="noopener noreferrer" className="btn-primary group flex items-center gap-2 text-blue-600 dark:text-blue-400 font-black">
+            <a href={project.live} target="_blank" rel="noopener noreferrer" className="btn-primary group flex items-center gap-2 text-blue-600 dark:text-blue-400 font-black relative z-50 hover:opacity-80 transition-opacity cursor-pointer">
               LIVE PREVIEW <ExternalLink size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </a>
-            <Link href={`/projects/${project.slug}`} className="text-gray-500 dark:text-gray-400 text-sm font-bold flex items-center gap-1 hover:text-gray-900 dark:hover:text-white transition-colors">
+            <Link href={`/projects/${project.slug}`} className="text-gray-500 dark:text-gray-400 text-sm font-bold flex items-center gap-1 hover:text-gray-900 dark:hover:text-white transition-colors relative z-50 cursor-pointer">
               Case Study <ChevronRight size={16} />
             </Link>
           </div>

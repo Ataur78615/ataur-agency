@@ -3,12 +3,48 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
-import { Moon, Sun, Monitor, Menu, X, Youtube, Facebook, Instagram, Github, Linkedin, Lock } from "lucide-react";
+import { Moon, Sun, Monitor, Menu, X, Youtube, Facebook, Instagram, Github, Linkedin, Lock, Globe, ChevronDown, SearchCheck } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [hidden, setHidden] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState('en');
+
+  const languages = [
+    { code: 'zh-CN', name: 'Chinese (Mandarin)' },
+    { code: 'en', name: 'English' },
+    { code: 'hi', name: 'Hindi' },
+    { code: 'es', name: 'Spanish' },
+    { code: 'ar', name: 'Arabic' },
+    { code: 'fr', name: 'French' },
+    { code: 'bn', name: 'Bengali' },
+    { code: 'pt', name: 'Portuguese' },
+    { code: 'ru', name: 'Russian' },
+    { code: 'ur', name: 'Urdu' }
+  ];
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      const match = document.cookie.match(/googtrans=\/[a-zA-Z-]+\/([a-zA-Z-]+)/);
+      if (match) {
+        setCurrentLang(match[1]);
+      }
+    }
+  }, []);
+
+  const changeLanguage = (langCode: string) => {
+    setCurrentLang(langCode);
+    setIsLangOpen(false);
+    setIsOpen(false);
+    const domain = window.location.hostname;
+    document.cookie = `googtrans=/en/${langCode}; path=/;`;
+    if (domain !== 'localhost') {
+      document.cookie = `googtrans=/en/${langCode}; path=/; domain=${domain};`;
+    }
+    window.location.reload();
+  };
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -87,6 +123,47 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
+            <Link 
+              href="/free-audit" 
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-black hover:bg-blue-500 hover:text-white transition-all border border-blue-500/20 shadow-lg shadow-blue-500/5 active:scale-95"
+            >
+              <SearchCheck size={16} />
+              Free Web Audit
+            </Link>
+
+            <div className="relative">
+               <button
+                 onClick={() => setIsLangOpen(!isLangOpen)}
+                 className="flex items-center gap-1 p-2 rounded-xl bg-black/5 dark:bg-white/5 text-gray-700 dark:text-gray-200 hover:bg-black/10 dark:hover:bg-white/10 transition-all border border-transparent hover:border-black/5 dark:hover:border-white/5"
+                 aria-label="Toggle Language"
+               >
+                 <Globe size={20} />
+                 <ChevronDown size={14} className={`transition-transform duration-300 ${isLangOpen ? 'rotate-180' : ''}`} />
+               </button>
+               
+               <AnimatePresence>
+                 {isLangOpen && (
+                   <motion.div
+                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                     animate={{ opacity: 1, y: 0, scale: 1 }}
+                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                     transition={{ duration: 0.2 }}
+                     className="absolute top-[120%] right-0 min-w-[200px] bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl shadow-xl overflow-hidden py-2 z-50 flex flex-col"
+                   >
+                     {languages.map((lang) => (
+                       <button
+                         key={lang.code}
+                         onClick={() => changeLanguage(lang.code)}
+                         className={`px-4 py-2.5 text-left text-sm font-medium hover:bg-blue-50 dark:hover:bg-blue-500/10 transition-colors ${currentLang === lang.code ? 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300'}`}
+                       >
+                         {lang.name}
+                       </button>
+                     ))}
+                   </motion.div>
+                 )}
+               </AnimatePresence>
+            </div>
+
             <button
               onClick={toggleTheme}
               className="p-2 rounded-xl bg-black/5 dark:bg-white/5 text-gray-700 dark:text-gray-200 hover:bg-black/10 dark:hover:bg-white/10 transition-all border border-transparent hover:border-black/5 dark:hover:border-white/5"
@@ -102,6 +179,19 @@ export default function Navbar() {
           </div>
 
           <div className="md:hidden flex items-center space-x-2">
+            <Link 
+              href="/free-audit" 
+              className="p-2 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 transition-all active:scale-90"
+              title="Free Web Audit"
+            >
+              <SearchCheck size={20} />
+            </Link>
+            <button
+               onClick={() => setIsLangOpen(!isLangOpen)}
+               className="p-2 rounded-lg bg-black/5 dark:bg-white/5 text-gray-700 dark:text-gray-200 transition-all relative"
+            >
+               <Globe size={20} />
+            </button>
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-black/5 dark:bg-white/5 text-gray-700 dark:text-gray-200 transition-all"
@@ -126,6 +216,27 @@ export default function Navbar() {
               className="md:hidden border-t border-white/10 dark:border-white/5"
             >
               <div className="px-4 py-6 space-y-2">
+                
+                {/* Mobile Language Dropdown */}
+                {isLangOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="flex flex-col gap-1 bg-black/5 dark:bg-white/5 rounded-xl p-2 mb-4"
+                  >
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => changeLanguage(lang.code)}
+                        className={`text-left px-4 py-2 font-medium rounded-lg text-sm w-full ${currentLang === lang.code ? 'bg-blue-500/20 text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300'}`}
+                      >
+                        {lang.name}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+
                 {navLinks.map((item) => (
                   <Link
                     key={item.href}
@@ -148,8 +259,16 @@ export default function Navbar() {
                     <Instagram size={20} className="text-pink-600" />
                   </a>
                 </div>
+                <div className="pt-6 space-y-3">
+                  <Link 
+                    href="/free-audit" 
+                    onClick={() => setIsOpen(false)} 
+                    className="flex items-center justify-center gap-3 px-6 py-4 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-2xl font-black text-lg border border-blue-500/20 active:scale-95 transition-all"
+                  >
+                    <SearchCheck size={22} />
+                    Free Web Audit
+                  </Link>
 
-                <div className="pt-4">
                   <Link 
                     href="/admin/login" 
                     onClick={() => setIsOpen(false)} 

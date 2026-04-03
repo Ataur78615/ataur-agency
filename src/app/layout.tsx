@@ -98,6 +98,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${interAccess.variable} ${plusJakartaSans.variable} font-sans antialiased`}>
+        <div id="google_translate_element" style={{ display: "none" }}></div>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element');
+              }
+            `,
+          }}
+        />
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer />
         {children}
         <WhatsAppButton />
         <Chatbot />

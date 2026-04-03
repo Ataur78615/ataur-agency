@@ -4,6 +4,16 @@ import Link from "next/link";
 
 const projects = [
   {
+    slug: "invest-secure",
+    title: "Invest Secure",
+    description: "Professional Income Investment & Wealth Management Platform",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    image: "/img/invest-secure.png",
+    live: "https://www.investsecure.live/",
+    source: "#",
+    details: "A high-end, visually stunning platform designed to compel users to strategically invest their income and continuously build wealth securely. Visit the live platform at https://www.investsecure.live/",
+  },
+  {
     slug: "stayzzy-bloom",
     title: "Stayzzy Bloom",
     description: "Hotel website built with Next.js and TypeScript",
@@ -98,7 +108,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               </div>
               <div className="flex space-x-4">
                 <a href={project.live} className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
-                  Live Demo
+                  Live Preview
                 </a>
                 <a href={project.source} className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-full font-medium transition-colors">
                   Source Code

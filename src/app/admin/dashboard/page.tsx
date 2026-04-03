@@ -23,7 +23,10 @@ import {
     ExternalLink,
     Menu,
     X,
-    FileText
+    FileText,
+    SearchCheck,
+    Globe,
+    MessageCircle
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -32,6 +35,7 @@ export default function AdminDashboard() {
     const [contacts, setContacts] = useState<any[]>([]);
     const [payments, setPayments] = useState<any[]>([]);
     const [agreements, setAgreements] = useState<any[]>([]);
+    const [audits, setAudits] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState("");
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -46,7 +50,7 @@ export default function AdminDashboard() {
 
         const fetchData = async () => {
             try {
-                const [contactsRes, paymentsRes, agreementsRes] = await Promise.all([
+                const [contactsRes, paymentsRes, agreementsRes, auditsRes] = await Promise.all([
                     fetch("/api/admin/contacts", {
                         headers: { "x-admin-auth": auth }
                     }),
@@ -55,10 +59,13 @@ export default function AdminDashboard() {
                     }),
                     fetch("/api/admin/agreements", {
                         headers: { "x-admin-auth": auth }
+                    }),
+                    fetch("/api/admin/audits", {
+                        headers: { "x-admin-auth": auth }
                     })
                 ]);
 
-                if (contactsRes.status === 401 || paymentsRes.status === 401 || agreementsRes.status === 401) {
+                if (contactsRes.status === 401 || paymentsRes.status === 401 || agreementsRes.status === 401 || auditsRes.status === 401) {
                     localStorage.removeItem("admin_auth");
                     router.push("/admin/login");
                     return;
@@ -67,9 +74,11 @@ export default function AdminDashboard() {
                 const contactsData = await contactsRes.json();
                 const paymentsData = await paymentsRes.json();
                 const agreementsData = await agreementsRes.json();
+                const auditsData = await auditsRes.json();
                 setContacts(contactsData);
                 setPayments(paymentsData);
                 setAgreements(agreementsData);
+                setAudits(auditsData);
             } catch (error) {
                 console.error("Failed to fetch dashboard data", error);
             } finally {
@@ -154,6 +163,13 @@ export default function AdminDashboard() {
         a.company?.toLowerCase().includes(searchQuery.toLowerCase()) ||
         a.email?.toLowerCase().includes(searchQuery.toLowerCase()) ||
         a.digitalSignature?.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const filteredAudits = audits.filter(a => 
+        a.websiteName?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        a.category?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        a.whatsappNumber?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        a.websiteUrl?.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     return (
@@ -245,6 +261,16 @@ export default function AdminDashboard() {
                                         {agreements.length}
                                     </span>
                                 </button>
+                                <button 
+                                    onClick={() => { setActiveTab("audits"); setIsSidebarOpen(false); }}
+                                    className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl transition-all font-bold text-sm ${activeTab === "audits" ? 'bg-blue-600 text-white shadow-xl shadow-blue-100' : 'text-gray-500 hover:bg-gray-50'}`}
+                                >
+                                    <SearchCheck className="w-5 h-5" />
+                                    Audit Inquiries
+                                    <span className={`ml-auto px-2 py-0.5 rounded-lg text-[10px] ${activeTab === "audits" ? 'bg-white/20' : 'bg-gray-100'}`}>
+                                        {audits.length}
+                                    </span>
+                                </button>
                             </nav>
 
                             <div className="mt-auto pt-6 border-t border-gray-100">
@@ -306,6 +332,16 @@ export default function AdminDashboard() {
                         Agreements
                         <span className={`ml-auto px-2 py-0.5 rounded-lg text-[10px] ${activeTab === "agreements" ? 'bg-white/20' : 'bg-gray-100'}`}>
                             {agreements.length}
+                        </span>
+                    </button>
+                    <button 
+                        onClick={() => setActiveTab("audits")}
+                        className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl transition-all font-bold text-sm ${activeTab === "audits" ? 'bg-blue-600 text-white shadow-xl shadow-blue-100' : 'text-gray-500 hover:bg-gray-50'}`}
+                    >
+                        <SearchCheck className="w-5 h-5" />
+                        Audit Inquiries
+                        <span className={`ml-auto px-2 py-0.5 rounded-lg text-[10px] ${activeTab === "audits" ? 'bg-white/20' : 'bg-gray-100'}`}>
+                            {audits.length}
                         </span>
                     </button>
                 </nav>
@@ -821,6 +857,109 @@ export default function AdminDashboard() {
                                         <div className="py-20 text-center">
                                             <FileText className="w-12 h-12 text-gray-200 mx-auto mb-4" />
                                             <p className="text-gray-400 font-bold uppercase tracking-widest text-xs">No agreements found</p>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
+
+                    {activeTab === "audits" && (
+                        <motion.div 
+                            key="audits"
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                        >
+                            <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 shadow-sm overflow-hidden">
+                                <div className="hidden md:block overflow-x-auto custom-scrollbar">
+                                    <table className="w-full text-left border-collapse min-w-[900px]">
+                                        <thead>
+                                            <tr className="bg-gray-50/50">
+                                                <th className="px-6 py-5 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-50">Website Info</th>
+                                                <th className="px-6 py-5 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-50">Category</th>
+                                                <th className="px-6 py-5 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-50">Contact (WhatsApp)</th>
+                                                <th className="px-6 py-5 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-50">Website URL</th>
+                                                <th className="px-6 py-5 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-50">Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-50">
+                                            {filteredAudits.map((a, idx) => (
+                                                <tr key={idx} className="hover:bg-blue-50/30 transition-colors group">
+                                                    <td className="px-6 py-5">
+                                                        <div className="flex items-center gap-3">
+                                                            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold shrink-0">
+                                                                <Globe size={18} />
+                                                            </div>
+                                                            <p className="text-sm font-black text-gray-900 truncate">{a.websiteName}</p>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-6 py-5 truncate">
+                                                        <span className="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-[10px] font-black uppercase tracking-widest border border-purple-100 italic">
+                                                            {a.category}
+                                                        </span>
+                                                    </td>
+                                                    <td className="px-6 py-5">
+                                                        <div className="flex items-center gap-2">
+                                                            <MessageCircle size={14} className="text-[#25D366]" />
+                                                            <p className="text-sm font-bold text-gray-700">{a.whatsappNumber}</p>
+                                                            <button onClick={() => copyToClipboard(a.whatsappNumber)} className="opacity-0 group-hover:opacity-100 p-1.5 bg-gray-50 rounded-lg hover:bg-white border border-gray-100 transition-opacity">
+                                                                <Copy size={12} className="text-gray-400" />
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-6 py-5">
+                                                        <a href={a.websiteUrl} target="_blank" className="text-sm font-bold text-blue-600 hover:underline flex items-center gap-2 truncate max-w-[200px]">
+                                                            {a.websiteUrl}
+                                                            <ExternalLink size={14} />
+                                                        </a>
+                                                    </td>
+                                                    <td className="px-6 py-5 text-[11px] text-gray-500 font-medium">
+                                                        {new Date(a.createdAt).toLocaleDateString()}
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                            {audits.length === 0 && (
+                                                <tr>
+                                                    <td colSpan={5} className="px-6 py-20 text-center">
+                                                        <SearchCheck className="w-12 h-12 text-gray-200 mx-auto mb-4" />
+                                                        <p className="text-gray-400 font-bold uppercase tracking-widest text-xs">No audit inquiries yet</p>
+                                                    </td>
+                                                </tr>
+                                            )}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                {/* Mobile Audit Cards */}
+                                <div className="md:hidden divide-y divide-gray-100">
+                                    {filteredAudits.map((a, idx) => (
+                                        <div key={idx} className="p-5 flex flex-col gap-4 bg-white active:bg-blue-50/50 transition-colors">
+                                            <div className="flex items-start justify-between">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold shrink-0"><Globe size={18} /></div>
+                                                    <p className="text-sm font-black text-gray-900 truncate">{a.websiteName}</p>
+                                                </div>
+                                                <p className="text-[9px] text-gray-400 font-medium shrink-0">{new Date(a.createdAt).toLocaleDateString()}</p>
+                                            </div>
+                                            <div className="p-3 bg-purple-50 rounded-xl border border-purple-100">
+                                                <p className="text-[10px] font-black text-purple-600 uppercase tracking-widest italic">{a.category}</p>
+                                            </div>
+                                            <div className="flex flex-col gap-2 bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                                 <div className="flex items-center gap-2">
+                                                     <MessageCircle size={14} className="text-[#25D366]" />
+                                                     <p className="text-xs font-bold text-gray-700">{a.whatsappNumber}</p>
+                                                 </div>
+                                                 <a href={a.websiteUrl} target="_blank" className="text-xs font-bold text-blue-600 truncate flex items-center gap-1">
+                                                     {a.websiteUrl} <ExternalLink size={12} />
+                                                 </a>
+                                            </div>
+                                        </div>
+                                    ))}
+                                    {audits.length === 0 && (
+                                        <div className="py-20 text-center">
+                                            <SearchCheck className="w-12 h-12 text-gray-200 mx-auto mb-4" />
+                                            <p className="text-gray-400 font-bold uppercase tracking-widest text-xs">No audit inquiries yet</p>
                                         </div>
                                     )}
                                 </div>
