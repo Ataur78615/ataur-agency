@@ -3,8 +3,8 @@ import Services from "@/components/Services";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Services - MD Ataur Ansari",
-  description: "Professional services offered by MD Ataur Ansari: UGC Video Creation, CGI Advertising, and Full-Stack Development.",
+  title: "Ataur Agency | Best Digital Marketing & Web Development Services India",
+  description: "Comprehensive digital marketing and web development services by Ataur Agency. We provide SEO, Performance Marketing, Custom Web Apps, and AI Automation to businesses all over India.",
 };
 
 export default function ServicesPage() {

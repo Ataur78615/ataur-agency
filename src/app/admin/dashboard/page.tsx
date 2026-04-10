@@ -877,8 +877,9 @@ export default function AdminDashboard() {
                                         <thead>
                                             <tr className="bg-gray-50/50">
                                                 <th className="px-6 py-5 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-50">Website Info</th>
-                                                <th className="px-6 py-5 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-50">Category</th>
-                                                <th className="px-6 py-5 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-50">Contact (WhatsApp)</th>
+                                                <th className="px-6 py-5 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-50">Category & Plan</th>
+                                                <th className="px-6 py-5 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-50">Contact</th>
+                                                <th className="px-6 py-5 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-50">Payment Status</th>
                                                 <th className="px-6 py-5 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-50">Website URL</th>
                                                 <th className="px-6 py-5 text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-50">Date</th>
                                             </tr>
@@ -895,17 +896,48 @@ export default function AdminDashboard() {
                                                         </div>
                                                     </td>
                                                     <td className="px-6 py-5 truncate">
-                                                        <span className="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-[10px] font-black uppercase tracking-widest border border-purple-100 italic">
+                                                        <span className="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-[10px] font-black uppercase tracking-widest border border-purple-100 italic block w-max mb-1">
                                                             {a.category}
+                                                        </span>
+                                                        <span className="text-[10px] font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded border border-gray-200">
+                                                            {a.plan} (₹{a.amount})
                                                         </span>
                                                     </td>
                                                     <td className="px-6 py-5">
-                                                        <div className="flex items-center gap-2">
-                                                            <MessageCircle size={14} className="text-[#25D366]" />
-                                                            <p className="text-sm font-bold text-gray-700">{a.whatsappNumber}</p>
-                                                            <button onClick={() => copyToClipboard(a.whatsappNumber)} className="opacity-0 group-hover:opacity-100 p-1.5 bg-gray-50 rounded-lg hover:bg-white border border-gray-100 transition-opacity">
-                                                                <Copy size={12} className="text-gray-400" />
-                                                            </button>
+                                                        <div className="flex flex-col gap-1">
+                                                            <div className="flex items-center gap-2">
+                                                                <Mail size={12} className="text-gray-400" />
+                                                                <p className="text-xs font-medium text-gray-600 truncate">{a.email}</p>
+                                                            </div>
+                                                            <div className="flex items-center gap-2">
+                                                                <MessageCircle size={14} className="text-[#25D366]" />
+                                                                <p className="text-sm font-bold text-gray-700">{a.whatsappNumber}</p>
+                                                                <button onClick={() => copyToClipboard(a.whatsappNumber)} className="opacity-0 group-hover:opacity-100 p-1.5 bg-gray-50 rounded-lg hover:bg-white border border-gray-100 transition-opacity">
+                                                                    <Copy size={12} className="text-gray-400" />
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-6 py-5">
+                                                        <div className="flex flex-col gap-1.5">
+                                                            <span className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border flex items-center gap-1.5 w-max ${
+                                                                a.paymentStatus === 'paid' 
+                                                                ? 'bg-green-50 text-green-600 border-green-100' 
+                                                                : 'bg-amber-50 text-amber-600 border-amber-100'
+                                                            }`}>
+                                                                {a.paymentStatus === 'paid' ? <CheckCircle2 size={12} /> : <Clock size={12} />}
+                                                                {a.paymentStatus === 'paid' ? 'CONFIRMED' : (a.paymentStatus?.toUpperCase() || 'PENDING')}
+                                                            </span>
+                                                            {a.paymentId && (
+                                                                <div className="flex items-center gap-1.5 mt-1 group/pid">
+                                                                    <p className="text-[9px] text-gray-400 font-mono bg-gray-50 px-2 py-0.5 rounded border border-gray-100 truncate max-w-[140px]" title={a.paymentId}>
+                                                                        {a.paymentId}
+                                                                    </p>
+                                                                    <button onClick={() => copyToClipboard(a.paymentId)} className="opacity-0 group-hover/pid:opacity-100 p-1 bg-white rounded border border-gray-100 hover:shadow-sm transition-opacity">
+                                                                       <Copy size={8} className="text-gray-400" />
+                                                                    </button>
+                                                                </div>
+                                                            )}
                                                         </div>
                                                     </td>
                                                     <td className="px-6 py-5">
@@ -947,12 +979,33 @@ export default function AdminDashboard() {
                                             </div>
                                             <div className="flex flex-col gap-2 bg-gray-50 p-4 rounded-xl border border-gray-100">
                                                  <div className="flex items-center gap-2">
+                                                     <Mail size={12} className="text-gray-400" />
+                                                     <p className="text-xs font-medium text-gray-600 truncate">{a.email}</p>
+                                                 </div>
+                                                 <div className="flex items-center gap-2">
                                                      <MessageCircle size={14} className="text-[#25D366]" />
                                                      <p className="text-xs font-bold text-gray-700">{a.whatsappNumber}</p>
                                                  </div>
                                                  <a href={a.websiteUrl} target="_blank" className="text-xs font-bold text-blue-600 truncate flex items-center gap-1">
                                                      {a.websiteUrl} <ExternalLink size={12} />
                                                  </a>
+                                            </div>
+                                            <div className="flex items-center justify-between mt-1">
+                                                <span className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border ${
+                                                    a.paymentStatus === 'paid' 
+                                                    ? 'bg-green-50 text-green-600 border-green-100' 
+                                                    : 'bg-amber-50 text-amber-600 border-amber-100'
+                                                }`}>
+                                                    {a.paymentStatus === 'paid' ? 'CONFIRMED' : (a.paymentStatus?.toUpperCase() || 'PENDING')}
+                                                </span>
+                                                {a.paymentId && (
+                                                    <div className="flex items-center gap-2">
+                                                        <p className="text-[9px] text-gray-300 font-mono">ID: {a.paymentId}</p>
+                                                        <button onClick={() => copyToClipboard(a.paymentId)} className="p-1 bg-gray-50 rounded border border-gray-100">
+                                                            <Copy size={8} className="text-gray-400" />
+                                                        </button>
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     ))}

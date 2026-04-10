@@ -8,6 +8,18 @@ import { ExternalLink, ChevronRight, Layout, Zap, Trophy, ShieldCheck } from "lu
 
 const projects = [
   {
+    title: "MyNextTrip",
+    description: "Premium Luxury Travel Booking Portal",
+    problem: "Travelers struggle to find and book premium, luxury travel experiences reliably while ensuring best prices and support.",
+    solution: "A curated, premium travel booking portal offering handpicked destinations, 'Best Price Guarantee', and 24/7 global support.",
+    result: "Over 1.5 million travelers chose MyNextTrip for luxury escapes and curated holiday packages.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    image: "/img/mynexttrip-logo.jpg",
+    slug: "my-next-trip",
+    live: "https://www.mynexttrip.in/",
+    color: "from-sky-500 to-blue-700",
+  },
+  {
     title: "Invest Secure",
     description: "Professional Income Investment & Wealth Management Platform",
     problem: "Users struggled to find a secure, intuitive platform that compelled them to strategically invest their income for long-term growth.",

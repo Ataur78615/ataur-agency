@@ -8,8 +8,8 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700"] });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
 export const metadata: Metadata = {
-  title: "Best Digital Marketing Agency Jharkhand | SEO PPC Web Development - Ataur Agency",
-  description: "Ataur Agency - Best digital marketing agency in Jharkhand, Noida, Delhi, Patna & Pan India. Expert SEO, PPC, SMM, React/Node.js web development, UGC ads for top leads & growth.",
+  title: "Ataur Agency | Best Digital Marketing & Web Development Agency in India",
+  description: "Ataur Agency is India's leading digital marketing and web development agency. Expert SEO, PPC, SMM, and Full-Stack Web Development services across Noida, Delhi, Patna, Ranchi, and Pan-India. Scale your business with our data-driven growth strategies.",
   keywords: [
     "digital marketing agency India", "best digital marketing agency", "digital marketing agency near me",
     "best SEO company in India", "PPC agency India", "social media marketing India",

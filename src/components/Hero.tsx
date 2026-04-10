@@ -55,12 +55,12 @@ export default function Hero() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
                 Marketing
               </span> <br className="hidden md:block" />
-              Agency in <span className="text-blue-600 dark:text-blue-400">Jharkhand</span>
+              Agency in <span className="text-blue-600 dark:text-blue-400">India</span>
             </h1>
             
             <p className="text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
               Result-driven SEO, PPC, and High-Performance Web Apps. Scaling businesses across 
-              <span className="font-bold text-gray-900 dark:text-white"> Jharkhand, Noida, & Delhi.</span>
+              <span className="font-bold text-gray-900 dark:text-white"> All India.</span>
             </p>
           </div>
 

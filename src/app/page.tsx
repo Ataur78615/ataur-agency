@@ -12,8 +12,8 @@ import Hero from "@/components/Hero";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best Digital Marketing Agency Jharkhand | SEO PPC Web Development - Ataur Agency",
-  description: "Ataur Agency - Best digital marketing agency in Jharkhand, Noida, Delhi, Patna & Pan India. Expert SEO, PPC, SMM, React/Node.js web development, UGC ads for top leads & growth.",
+  title: "Ataur Agency | Best Digital Marketing & Web Development Agency in India",
+  description: "Transform your business with Ataur Agency - India's premium Digital Marketing and Web Development solutions. Expertise in SEO, Meta Ads, and High-Performance Web Apps for pan-India growth.",
 };
 
 export default function Home() {

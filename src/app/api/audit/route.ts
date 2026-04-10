@@ -5,9 +5,20 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
   try {
-    const { websiteName, category, whatsappNumber, websiteUrl } = await request.json();
+    const { 
+      websiteName, 
+      category, 
+      whatsappNumber, 
+      websiteUrl, 
+      email, 
+      plan, 
+      amount, 
+      paymentStatus = 'pending',
+      paymentId = '',
+      orderId = ''
+    } = await request.json();
 
-    if (!websiteName || !category || !whatsappNumber || !websiteUrl) {
+    if (!websiteName || !category || !whatsappNumber || !websiteUrl || !email || !plan || !amount) {
       return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
     }
 
@@ -17,7 +28,13 @@ export async function POST(request: NextRequest) {
       websiteName,
       category,
       whatsappNumber,
+      email,
       websiteUrl,
+      plan,
+      amount,
+      paymentStatus,
+      paymentId,
+      orderId
     });
 
     await auditInquiry.save();
@@ -39,16 +56,20 @@ export async function POST(request: NextRequest) {
         const mailOptions = {
           from: emailUser,
           to: emailUser, // Send to admin
-          subject: `🚀 New Free Web Audit Request: ${websiteName}`,
+          subject: `💰 New Revenue Leakage Audit Request: ${websiteName}`,
           html: `
             <div style="font-family: sans-serif; padding: 20px; color: #333; border: 1px solid #eee; border-radius: 10px;">
-              <h2 style="color: #2563eb;">New Audit Submission</h2>
-              <p>You have received a new Web Audit request from your website.</p>
+              <h2 style="color: #2563eb;">New Revenue Leakage Audit Submission</h2>
+              <p>You have received a new Audit request from your website.</p>
               <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
               <p><strong>Website Name:</strong> ${websiteName}</p>
               <p><strong>Category:</strong> ${category}</p>
+              <p><strong>Email Address:</strong> ${email}</p>
               <p><strong>WhatsApp Number:</strong> ${whatsappNumber}</p>
               <p><strong>Website URL:</strong> <a href="${websiteUrl}" style="color: #2563eb;">${websiteUrl}</a></p>
+              <p><strong>Selection Plan:</strong> ${plan} (₹${amount})</p>
+              <p><strong>Payment Status:</strong> ${paymentStatus}</p>
+              <p><strong>Payment ID:</strong> ${paymentId}</p>
               <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
               <p style="font-size: 12px; color: #666;">This is an automated notification from Ataur Agency.</p>
             </div>

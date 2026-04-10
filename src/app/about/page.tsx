@@ -3,8 +3,8 @@ import About from "@/components/About";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "About Us - Ataur Agency | Top Digital Marketing Experts in India",
-  description: "Learn about Ataur Agency and MD Ataur Ansari, a leader in UGC creation, CGI advertising, and full-stack web development (MERN/Next.js) based in Patna, India.",
+  title: "Ataur Agency | About India's Leading Digital Marketing Agency",
+  description: "Ataur Agency, founded by MD Ataur Ansari, is a premier digital agency in India specializing in performance marketing and full-stack development. We help brands nationwide achieve exponential growth.",
 };
 
 export default function AboutPage() {

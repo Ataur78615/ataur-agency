@@ -124,11 +124,11 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center space-x-4">
             <Link 
-              href="/free-audit" 
+              href="/Revenue-Leakage-Audit" 
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-black hover:bg-blue-500 hover:text-white transition-all border border-blue-500/20 shadow-lg shadow-blue-500/5 active:scale-95"
             >
               <SearchCheck size={16} />
-              Free Web Audit
+             Revenue Leakage Audit
             </Link>
 
             <div className="relative">
@@ -180,9 +180,9 @@ export default function Navbar() {
 
           <div className="md:hidden flex items-center space-x-2">
             <Link 
-              href="/free-audit" 
+              href="/Revenue-Leakage-Audit" 
               className="p-2 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 transition-all active:scale-90"
-              title="Free Web Audit"
+              title="Revenue Leakage Audit"
             >
               <SearchCheck size={20} />
             </Link>
@@ -261,12 +261,12 @@ export default function Navbar() {
                 </div>
                 <div className="pt-6 space-y-3">
                   <Link 
-                    href="/free-audit" 
+                    href="/Revenue-Leakage-Audit" 
                     onClick={() => setIsOpen(false)} 
                     className="flex items-center justify-center gap-3 px-6 py-4 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-2xl font-black text-lg border border-blue-500/20 active:scale-95 transition-all"
                   >
                     <SearchCheck size={22} />
-                    Free Web Audit
+                    Revenue Leakage Audit
                   </Link>
 
                   <Link 

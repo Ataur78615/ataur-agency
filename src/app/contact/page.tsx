@@ -3,8 +3,8 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Contact Us - Ataur Agency | Digital Marketing & Web Development Patna",
-  description: "Get in touch with Ataur Agency for top-rated SEO, PPC, and individual web development services. Contact our experts in Patna, India for high-converting ads and websites.",
+  title: "Ataur Agency | Hire India's Top Digital Marketing & Web Agency",
+  description: "Ready to scale your business? Get in touch with Ataur Agency - India's best for SEO, Web Development, and Digital Strategy. Serving clients nationwide with excellence.",
 };
 
 export default function ContactPage() {

@@ -3,8 +3,8 @@ import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Our Projects - Ataur Agency | Portfolio of CGI, UGC & Web Apps",
-  description: "Explore our successful projects in digital marketing, cinematic CGI advertisements, and advanced full-stack web applications developed by Ataur Agency.",
+  title: "Ataur Agency | Case Studies & Projects Portfolio India",
+  description: "Browse our portfolio of high-impact Digital Marketing campaigns and advanced Web Development projects successfully delivered to clients across India.",
 };
 
 export default function ProjectsPage() {
