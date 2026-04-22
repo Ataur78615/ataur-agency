@@ -79,6 +79,18 @@ const projects = [
     live: "#",
     color: "from-indigo-600 to-purple-600",
   },
+  {
+    title: "Service 24/7",
+    description: "Authorized Multi-Brand Appliance Repair Portal",
+    problem: "Customers struggled to find reliable, round-the-clock repair services for premium appliances like LG and Samsung in Ranchi.",
+    solution: "A centralized, 24/7 service booking platform with real-time technician tracking and guaranteed genuine parts.",
+    result: "Established as Ranchi's leading appliance service provider with a 98% customer satisfaction rate and 24-hour turnaround.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    image: "/img/service247-logo.png",
+    slug: "service-247",
+    live: "https://www.service247.store/",
+    color: "from-red-600 to-rose-700",
+  },
 ];
 
 const ProjectCard = ({ project, index }: { project: any, index: number }) => {
