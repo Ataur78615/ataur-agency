@@ -9,7 +9,8 @@ import {
   ShieldCheck, 
   Sparkles,
   Database,
-  ArrowUpRight
+  ArrowUpRight,
+  Share2
 } from "lucide-react";
 
 const services = [
@@ -47,7 +48,7 @@ const services = [
     tags: ["Audit", "VAPT", "Protection"],
     color: "from-red-500 to-pink-600",
     href: "/services/cyber-security",
-    size: "md:col-span-1 md:row-span-2",
+    size: "md:col-span-1 md:row-span-1",
   },
   {
     title: "UGC & CGI Ads",
@@ -65,6 +66,15 @@ const services = [
     tags: ["CRM", "RBAC", "SaaS"],
     color: "from-indigo-500 to-purple-600",
     href: "/services/enterprise-systems",
+    size: "md:col-span-1 md:row-span-1",
+  },
+  {
+    title: "Social Media Handling",
+    description: "Professional social media management, content creation, and growth.",
+    icon: <Share2 size={32} />,
+    tags: ["Instagram", "Meta", "Growth"],
+    color: "from-pink-500 to-orange-500",
+    href: "/services/social-media-handling",
     size: "md:col-span-1 md:row-span-1",
   },
 ];

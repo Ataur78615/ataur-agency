@@ -9,6 +9,7 @@ import ClientWhispers from "@/components/ClientWhispers";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import SuccessShowcase from "@/components/three/SuccessShowcase";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <SuccessShowcase />
       <Projects />
       <Services />
       <Pricing />

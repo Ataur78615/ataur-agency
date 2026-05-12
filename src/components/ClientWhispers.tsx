@@ -7,6 +7,13 @@ import Magnetic from "./Magnetic";
 
 const testimonials = [
   {
+    company: "Service247.store",
+    founder: "Taslim",
+    location: "Hazaribagh, Jharkhand",
+    text: "Ataur Agency developed our service platform, service247.store, and their technical execution was flawless. The website is highly professional and functions exactly as we needed. What really changed the game for us was their digital marketing strategy. Once they took over our online promotion and SEO, we started seeing a consistent flow of real customer engagement and measurable revenue growth. If you are serious about scaling your business online and need a reliable partner, I highly recommend Ataur Agency.",
+    logo: "S2",
+  },
+  {
     company: "Apex Digital Academy",
     founder: "Arman Siddiqui",
     location: "Ranchi, Jharkhand",
