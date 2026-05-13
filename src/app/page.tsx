@@ -7,6 +7,7 @@ import Pricing from "@/components/Pricing";
 import VideoDemo from "@/components/VideoDemo";
 import ClientWhispers from "@/components/ClientWhispers";
 import Contact from "@/components/Contact";
+import SEOKeywords from "@/components/SEOKeywords";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import SuccessShowcase from "@/components/three/SuccessShowcase";
@@ -23,6 +24,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <SEOKeywords />
       <SuccessShowcase />
       <Projects />
       <Services />

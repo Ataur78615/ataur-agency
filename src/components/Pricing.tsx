@@ -99,7 +99,7 @@ export default function Pricing() {
                                                 <div className="space-y-2">
                                                     <div className="flex justify-between text-xs font-bold text-gray-400 uppercase tracking-tight">
                                                         <span>Avg. Market Rate</span>
-                                                        <span>₹{service.market.toLocaleString()} / ${service.marketUSD}</span>
+                                                        <span>₹{service.market.toLocaleString('en-IN')} / ${service.marketUSD}</span>
                                                     </div>
                                                     <div className="h-2.5 w-full bg-gray-100 rounded-full overflow-hidden">
                                                         <motion.div
@@ -116,7 +116,7 @@ export default function Pricing() {
                                                 <div className="space-y-2">
                                                     <div className="flex justify-between text-xs font-bold text-blue-600 uppercase tracking-tight">
                                                         <span>Ataur Agency (50% OFF)</span>
-                                                        <span className="text-sm font-black">₹{service.ataur.toLocaleString()} / ${service.ataurUSD}</span>
+                                                        <span className="text-sm font-black">₹{service.ataur.toLocaleString('en-IN')} / ${service.ataurUSD}</span>
                                                     </div>
                                                     <div className="h-4 w-full bg-blue-50 rounded-full overflow-hidden border border-blue-100 p-0.5">
                                                         <motion.div
@@ -133,7 +133,7 @@ export default function Pricing() {
                                             {/* CTA / Value */}
                                             <div className="lg:w-48 flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-gray-100 pt-6 lg:pt-0 lg:pl-8 text-center">
                                                 <div className="text-2xl font-black text-gray-900 mb-1 leading-none italic">
-                                                    - ₹{(service.market - service.ataur).toLocaleString()}
+                                                    - ₹{(service.market - service.ataur).toLocaleString('en-IN')}
                                                 </div>
                                                 <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">
                                                     Net Savings

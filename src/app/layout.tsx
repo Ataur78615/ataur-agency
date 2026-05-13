@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   title: "Ataur Agency | Best Digital Marketing & Web Development Agency in India",
   description: "Ataur Agency is India's leading digital marketing and web development agency. Expert SEO, PPC, SMM, and Full-Stack Web Development services across Noida, Delhi, Patna, Ranchi, and Pan-India. Scale your business with our data-driven growth strategies.",
   keywords: [
+    "IT Solutions company", "IT Solutions architect", "IT Solutions consulting",
+    "managed IT services", "cloud IT solutions", "cyber security solutions",
+    "enterprise IT systems", "IT solution services", "IT infrastructure India",
+    "best digital marketing agency in USA", "best digital marketing agency in India", 
+    "best digital marketing agency in San Francisco", "best digital marketing agency in Washington DC",
+    "best digital marketing agency in Hyderabad", "best digital marketing agency in Delhi",
+    "best digital marketing agency in Kerala", "best digital marketing agency in Dubai",
+    "best digital marketing agency Australia", "best digital marketing agency Ahmedabad",
+    "best digital marketing agency Bangalore", "best digital marketing agency Chennai",
+    "best digital marketing agency Mumbai", "best digital marketing agency Pune",
+    "best digital marketing agency 2025", "top digital marketing agency 2026",
+    "best digital marketing agency for real estate", "best digital marketing agency for doctors",
+    "best digital marketing agency for startups", "best digital marketing agency for ecommerce",
     "digital marketing agency India", "best digital marketing agency", "digital marketing agency near me",
     "best SEO company in India", "PPC agency India", "social media marketing India",
     "web development company India", "lead generation agency India", "content marketing agency India",
@@ -41,17 +54,18 @@ export const metadata: Metadata = {
     "retargeting campaigns", "AI personalization marketing", "chatbots for websites India",
     "automation tools marketing", "n8n automation agency", "Vercel deployment services",
     "GitHub portfolio developer", "VS Code expert", "cloud SEO optimization",
-    "best agency Bihar", "Patna digital marketing", "Bihar SEO company",
+    "best agency jharkhand", "Patna digital marketing", "Bihar SEO company",
     "India top marketing agency", "near me web developer", "popular SEO services",
     "website agency Patna", "digital marketing Jharkhand", "Noida digital agency",
-    "best full stack agency India"
+    "Performance Marketing in Noida", "MERN Stack Developer Ranchi", "Digital Transformation for Hotels",
+    "Bokaro web development", "Jharkhand digital growth agency", "best full stack agency India"
   ],
   authors: [{ name: "MD Ataur Ansari" }],
   creator: "MD Ataur Ansari",
   openGraph: {
     title: "Ataur Agency - Leading Digital Marketing & Tech Solutions",
     description: "Expert digital marketing, SEO, and web development services to scale your business. Jharkhand's top-rated agency.",
-    url: "https://ataur-ansari.vercel.app",
+    url: "https://atauragency.in",
     siteName: "Ataur Agency",
     images: [
       {
