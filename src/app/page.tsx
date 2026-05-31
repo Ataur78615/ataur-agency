@@ -14,8 +14,8 @@ import SuccessShowcase from "@/components/three/SuccessShowcase";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ataur Agency | Best Digital Marketing & Web Development Agency in India",
-  description: "Transform your business with Ataur Agency - India's premium Digital Marketing and Web Development solutions. Expertise in SEO, Meta Ads, and High-Performance Web Apps for pan-India growth.",
+  title: "Ataur Agency | Digital Marketing & Website Agency Services",
+  description: "Boost your online presence with Ataur Agency. We offer expert digital marketing services and custom website agency solutions to scale your business globally.",
 };
 
 export default function Home() {

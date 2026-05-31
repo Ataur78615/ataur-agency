@@ -7,12 +7,11 @@ import { ArrowRight, Sparkles, Globe, TrendingUp, Cpu, CheckCircle, Zap } from "
 import Magnetic from "./Magnetic";
 
 const rotatingServices = [
-  "Digital Growth",
   "Digital Marketing",
-  "IT Solutions",
-  "AI Automation",
-  "Branding",
+  "Website Design",
+  "SEO & Local SEO",
   "Web Development",
+  "AI Automation",
   "Lead Generation"
 ];
 
@@ -80,9 +79,9 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-gray-900 dark:text-white mb-6 leading-[1.1] drop-shadow-2xl"
           >
-            India’s Next-Generation <br />
+            Scale Your Brand with a <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-650 dark:from-blue-500 dark:via-indigo-500 dark:to-purple-500">
-              AI-Powered
+              Premium SEO &
             </span> <br />
             <div className="h-[1.2em] relative overflow-hidden inline-block w-full align-bottom">
               <AnimatePresence mode="popLayout">
@@ -97,19 +96,19 @@ export default function Hero() {
                   {rotatingServices[serviceIndex]}
                 </motion.span>
               </AnimatePresence>
-              <span className="opacity-0 font-black">Web Development</span> {/* Layout Spacer */}
+              <span className="opacity-0 font-black">Digital Marketing</span> {/* Layout Spacer */}
             </div>
             <span className="block mt-2 text-gray-900 dark:text-white">Agency</span>
           </motion.h1>
 
-          <motion.p
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-2xl text-gray-800 dark:text-gray-200 font-bold max-w-2xl mb-4 leading-relaxed drop-shadow-md"
           >
-            We don’t just market businesses — we build digital systems that generate growth, automate operations, and attract customers worldwide.
-          </motion.p>
+            High-impact digital marketing services, custom website design, and AI automation built to drive organic traffic and dominate search results.
+          </motion.h2>
           
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -117,7 +116,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-sm md:text-base text-gray-650 dark:text-gray-400 font-medium max-w-2xl mb-10 leading-relaxed bg-black/5 dark:bg-black/20 p-4 rounded-xl border border-black/5 dark:border-white/5 backdrop-blur-sm"
           >
-            From SEO and social media growth to AI automation and high-performance web platforms — Ataur Agency helps startups, hotels, clinics, IT companies, and brands scale faster with modern digital strategies.
+            Looking for a top-tier digital marketing agency near me or a high-performance website agency near me? From expert SEO to advanced web platforms, we engineer high-converting digital solutions. Claim your free strategy audit today to accelerate your business growth.
           </motion.p>
 
           <motion.div

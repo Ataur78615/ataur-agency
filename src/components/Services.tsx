@@ -16,19 +16,19 @@ import {
 
 const services = [
   {
-    title: "Performance Advertising",
-    description: "Scale with high-conversion campaigns across Meta, Google & LinkedIn.",
+    title: "Digital Marketing Services",
+    description: "Drive high-intent traffic, capture leads, and scale revenue with our result-driven digital marketing services, including advanced SEO, PPC campaigns, and social media handling.",
     icon: <Rocket size={32} />,
-    tags: ["Meta Ads", "Google Ads", "LinkedIn"],
+    tags: ["Meta & Google Ads", "SEO Services", "Social Media Growth"],
     color: "from-blue-500 to-indigo-600",
     href: "/services/performance-advertising",
     size: "md:col-span-2 md:row-span-2",
   },
   {
-    title: "Web Design & Dev",
-    description: "Next.js, React, and MERN stack solutions built for speed and scale.",
+    title: "Website Design & Dev Agency",
+    description: "As a premier website design and development agency, we build responsive, lightning-fast custom websites, e-commerce platforms, and MERN/Next.js systems optimized for conversions.",
     icon: <Code size={32} />,
-    tags: ["Next.js", "MERN", "E-commerce"],
+    tags: ["Next.js & React", "E-commerce", "Website Design"],
     color: "from-emerald-500 to-teal-600",
     href: "/services/web-design-development",
     size: "md:col-span-2 md:row-span-1",
