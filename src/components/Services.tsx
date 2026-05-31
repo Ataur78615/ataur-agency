@@ -10,7 +10,8 @@ import {
   Sparkles,
   Database,
   ArrowUpRight,
-  Share2
+  Share2,
+  MapPin
 } from "lucide-react";
 
 const services = [
@@ -76,6 +77,15 @@ const services = [
     color: "from-pink-500 to-orange-500",
     href: "/services/social-media-handling",
     size: "md:col-span-1 md:row-span-1",
+  },
+  {
+    title: "Google Business Profile Setup",
+    description: "Dominate Google Maps & Local search. Professional GMB & GMP Geo-Optimization.",
+    icon: <MapPin size={32} />,
+    tags: ["Google Maps", "Local SEO", "GEO Setup"],
+    color: "from-blue-600 to-indigo-700",
+    href: "/services/google-business-profile",
+    size: "md:col-span-2 md:row-span-1",
   },
 ];
 
