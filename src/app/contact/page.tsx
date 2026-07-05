@@ -1,10 +1,19 @@
 import Navbar from "@/components/Navbar";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Ataur Agency | Hire India's Top Digital Marketing & Web Agency",
-  description: "Ready to scale your business? Get in touch with Ataur Agency - India's best for SEO, Web Development, and Digital Strategy. Serving clients nationwide with excellence.",
+  description: "Ready to scale your business? Get in touch with Ataur Agency - India's best for SEO, Web Development, and Digital Strategy.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Ataur Agency | Hire India's Top Digital Marketing & Web Agency",
+    description: "Ready to scale your business? Get in touch with Ataur Agency - India's best for SEO, Web Development, and Digital Strategy.",
+    url: "/contact",
+  },
 };
 
 export default function ContactPage() {

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import ServiceSchema from "@/components/ServiceSchema";
 import Footer from "@/components/Footer";
 import PaymentForm from "@/components/PaymentForm";
 import PaymentSuccess from "@/components/PaymentSuccess";
@@ -301,6 +302,7 @@ export default function GoogleBusinessProfilePage() {
 
       </main>
       <Footer />
-    </div>
-  );
+    
+            <ServiceSchema serviceType="Google Business Profile Optimization" description="Enhance your local search visibility and attract more customers with our expert Google Business Profile setup and optimization services." url="https://atauragency.in/services/google-business-profile" />
+        </div>);
 }

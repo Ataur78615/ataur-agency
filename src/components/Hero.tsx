@@ -101,6 +101,18 @@ export default function Hero() {
             <span className="block mt-2 text-gray-900 dark:text-white">Agency</span>
           </motion.h1>
 
+          <motion.a
+            href="https://www.aiscamchecker.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="inline-flex items-center gap-2 mb-8 px-8 py-3.5 bg-gradient-to-r from-blue-700 to-indigo-900 text-white font-black text-sm md:text-base rounded-full shadow-[0_8px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_10px_40px_rgba(37,99,235,0.5)] hover:-translate-y-1 transition-all border border-blue-400/20 w-fit"
+          >
+            Try AiScamChecker Now & Stay Secure
+          </motion.a>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -1,11 +1,41 @@
 "use client";
+"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import ServiceSchema from "@/components/ServiceSchema";
 import Footer from "@/components/Footer";
 import PaymentForm from "@/components/PaymentForm";
 import PaymentSuccess from "@/components/PaymentSuccess";
+import FAQSection from "@/components/FAQSection";
+
+const webDesignFaqs = [
+  {
+    question: "Why do you use Next.js and React for web development?",
+    answer: "Next.js provides server-side rendering (SSR) and static site generation (SSG). This means your website will load incredibly fast, rank higher on Google (due to better Core Web Vitals), and offer a seamless app-like experience."
+  },
+  {
+    question: "Do you use pre-made templates or custom code?",
+    answer: "We design and develop 100% custom websites from scratch. We don't rely on bloated WordPress templates. Every line of code is tailored to your brand's unique UI/UX requirements."
+  },
+  {
+    question: "How long does it take to build a custom business website?",
+    answer: "A standard landing page or startup website usually takes 1-2 weeks. For more complex, multi-page corporate websites or custom web applications, the timeframe is typically 3-5 weeks."
+  },
+  {
+    question: "Will my website be mobile-friendly and responsive?",
+    answer: "Yes. We use a mobile-first approach using Tailwind CSS. Your website will adapt flawlessly across all screen sizes, from large desktop monitors to smartphones and tablets."
+  },
+  {
+    question: "Do you provide SEO setup with the web design package?",
+    answer: "Absolutely. Every website we build comes with foundational technical SEO, including optimized meta tags, JSON-LD structured data, fast image loading, and semantic HTML architecture."
+  },
+  {
+    question: "Can I update the website content myself after launch?",
+    answer: "Yes, we can integrate a headless Content Management System (CMS) like Sanity or Strapi, allowing you to easily update text, add blog posts, or change images without touching any code."
+  }
+];
 
 const packages = [
     {
@@ -259,7 +289,11 @@ export default function WebDesignDevelopmentPage() {
                     </div>
                 </section>
             </main>
+            <div className="bg-[#030303]">
+                <FAQSection faqs={webDesignFaqs} title="Web Design & Development FAQs" subtitle="Common questions about our Next.js web services" />
+            </div>
             <Footer />
-        </div>
-    );
+        
+            <ServiceSchema serviceType="Custom Web Design and Development" description="Professional web design and development services using modern technologies like Next.js and React to build high-performance, SEO-friendly websites." url="https://atauragency.in/services/web-design-development" />
+        </div>);
 }

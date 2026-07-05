@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import ServiceSchema from "@/components/ServiceSchema";
 import Footer from "@/components/Footer";
 import PaymentForm from "@/components/PaymentForm";
 import PaymentSuccess from "@/components/PaymentSuccess";
@@ -315,6 +316,7 @@ export default function UGCDAdsPage() {
                 </section>
             </main>
             <Footer />
-        </div>
-    );
+        
+            <ServiceSchema serviceType="UGC & CGI Advertising Campaigns" description="Engaging User Generated Content (UGC) and cutting-edge CGI advertising campaigns designed to capture attention and drive conversions." url="https://atauragency.in/services/ugc-cgi-ads" />
+        </div>);
 }

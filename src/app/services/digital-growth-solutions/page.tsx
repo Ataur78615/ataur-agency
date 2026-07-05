@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import ServiceSchema from "@/components/ServiceSchema";
 import Footer from "@/components/Footer";
 import SEOKeywords from "@/components/SEOKeywords";
 import { 
@@ -298,6 +299,7 @@ export default function DigitalGrowthPage() {
 
       <SEOKeywords />
       <Footer />
-    </div>
-  );
+    
+            <ServiceSchema serviceType="Comprehensive Digital Growth Solutions" description="End-to-end digital growth strategies including SEO, AEO, and multi-channel marketing to dominate your industry and scale revenue." url="https://atauragency.in/services/digital-growth-solutions" />
+        </div>);
 }

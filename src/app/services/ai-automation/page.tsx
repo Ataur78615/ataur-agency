@@ -1,11 +1,37 @@
 "use client";
+"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import ServiceSchema from "@/components/ServiceSchema";
 import Footer from "@/components/Footer";
 import PaymentForm from "@/components/PaymentForm";
 import PaymentSuccess from "@/components/PaymentSuccess";
+import FAQSection from "@/components/FAQSection";
+
+const aiFaqs = [
+  {
+    question: "What is an AI WhatsApp Chatbot and how does it generate leads?",
+    answer: "An AI WhatsApp Chatbot acts as a 24/7 digital assistant. It instantly replies to customer inquiries, qualifies leads by asking specific questions, and captures their contact information automatically, syncing it to your CRM."
+  },
+  {
+    question: "Do you use n8n for workflow automation?",
+    answer: "Yes, we specialize in n8n for workflow automation. It allows us to build powerful, custom integrations between your apps without relying on expensive monthly SaaS subscriptions like Zapier."
+  },
+  {
+    question: "Will AI automation replace my sales team?",
+    answer: "No, AI automation empowers your sales team. By handling repetitive tasks, answering basic FAQs, and pre-qualifying leads, your team can focus exclusively on closing high-value deals."
+  },
+  {
+    question: "Are there ongoing monthly fees for your AI setups?",
+    answer: "Our core AI and automation setup is a one-time development fee. However, you will be responsible for minimal API usage costs (like Meta's WhatsApp API or OpenAI). We also offer optional monthly maintenance plans."
+  },
+  {
+    question: "Can your AI chatbots integrate with my existing CRM?",
+    answer: "Absolutely. We can integrate our custom AI chatbots with almost any modern CRM, database, or Google Sheets to ensure your data flows seamlessly across your business ecosystem."
+  }
+];
 
 const packages = [
     {
@@ -318,7 +344,11 @@ export default function AIAutomationPage() {
                     </div>
                 </section>
             </main>
+            <div className="bg-[#030303]">
+                <FAQSection faqs={aiFaqs} title="AI Automation FAQs" subtitle="Clear answers on how AI scales your business" />
+            </div>
             <Footer />
-        </div>
-    );
+        
+            <ServiceSchema serviceType="AI Automation and Workflow Development" description="Streamline your business operations with advanced AI automation, n8n workflows, and custom chatbots tailored to your specific needs." url="https://atauragency.in/services/ai-automation" />
+        </div>);
 }

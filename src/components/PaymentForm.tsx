@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 interface PaymentFormProps {
     isOpen: boolean;
@@ -152,10 +153,12 @@ export default function PaymentForm({ isOpen, onClose, serviceType, amount, onSu
                                     <p className="text-gray-500 mb-6 text-sm">Pay <span className="text-blue-600 font-bold">₹{amount}</span> for {serviceType}</p>
 
                                     <div className="bg-white p-4 rounded-3xl border-2 border-dashed border-blue-100 inline-block mb-6 shadow-inner relative group">
-                                        <img
+                                        <Image
                                             src={qrCodeUrl}
-                                            alt="UPI QR Code"
-                                            className="w-64 h-64 rounded-xl shadow-lg transition-transform group-hover:scale-105"
+                                            alt="Ataur Agency Secure Payment QR Code"
+                                            width={256}
+                                            height={256}
+                                            className="rounded-xl shadow-lg transition-transform group-hover:scale-105"
                                         />
                                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-white/10 backdrop-blur-[2px] rounded-xl">
                                             <span className="bg-white px-4 py-2 rounded-full text-xs font-bold text-blue-600 shadow-lg border border-blue-50">Scan with any UPI App</span>

@@ -8,81 +8,35 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700"] });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.atauragency.in"),
   title: "Ataur Agency | Best Digital Marketing & Web Development Agency in India",
-  description: "Ataur Agency is India's leading digital marketing and web development agency. Expert SEO, PPC, SMM, and Full-Stack Web Development services across Noida, Delhi, Patna, Ranchi, and Pan-India. Scale your business with our data-driven growth strategies.",
-  keywords: [
-    "IT Solutions company", "IT Solutions architect", "IT Solutions consulting",
-    "managed IT services", "cloud IT solutions", "cyber security solutions",
-    "enterprise IT systems", "IT solution services", "IT infrastructure India",
-    "best digital marketing agency in USA", "best digital marketing agency in India", 
-    "best digital marketing agency in San Francisco", "best digital marketing agency in Washington DC",
-    "best digital marketing agency in Hyderabad", "best digital marketing agency in Delhi",
-    "best digital marketing agency in Kerala", "best digital marketing agency in Dubai",
-    "best digital marketing agency Australia", "best digital marketing agency Ahmedabad",
-    "best digital marketing agency Bangalore", "best digital marketing agency Chennai",
-    "best digital marketing agency Mumbai", "best digital marketing agency Pune",
-    "best digital marketing agency 2025", "top digital marketing agency 2026",
-    "best digital marketing agency for real estate", "best digital marketing agency for doctors",
-    "best digital marketing agency for startups", "best digital marketing agency for ecommerce",
-    "digital marketing agency India", "best digital marketing agency", "digital marketing agency near me",
-    "best SEO company in India", "PPC agency India", "social media marketing India",
-    "web development company India", "lead generation agency India", "content marketing agency India",
-    "best digital marketing agency India", "website development agency", "top digital marketing company",
-    "digital marketing services India", "SEO services near me", "best website designer India",
-    "digital marketing company Patna", "SEO agency Bihar", "popular digital marketing agency",
-    "affordable digital marketing India", "best agency for SEO", "website development near me",
-    "digital marketing expert India", "Google Ads agency India", "Facebook marketing agency",
-    "Instagram marketing services", "React development company India", "Node.js development India",
-    "Python web development", "hire digital marketer India", "best digital marketing in Jharkhand",
-    "local SEO services India", "e-commerce website development", "WordPress development agency",
-    "mobile app development India", "influencer marketing agency", "email marketing services India",
-    "video marketing agency", "best web developer near me", "digital marketing course India",
-    "ORM services India", "online reputation management", "SMO services India",
-    "SEM agency near me", "programmatic advertising India", "voice search optimization",
-    "hyperlocal SEO Patna", "Hindi SEO keywords", "bilingual digital marketing",
-    "SEO company Kankarbagh", "digital marketing Boring Road Patna", "custom website design India",
-    "landing page development", "Shopify development agency", "WooCommerce expert India",
-    "Next.js development services", "TypeScript developer India", "MongoDB development agency",
-    "AWS hosting services India", "performance marketing agency", "ROI focused digital agency",
-    "cheap SEO packages India", "digital marketing for small business", "startup marketing agency",
-    "hospitality website development", "hotel booking website India", "restaurant website designer",
-    "SEO for hospitality India", "lead generation for hotels", "Google My Business optimization",
-    "top rated agency near me", "digital strategy consultant", "growth hacking agency India",
-    "conversion rate optimization", "A/B testing services", "analytics setup Google",
-    "Facebook Ads expert Patna", "LinkedIn marketing India", "YouTube SEO services",
-    "TikTok marketing agency", "reels engagement strategy", "programmatic targeting India",
-    "retargeting campaigns", "AI personalization marketing", "chatbots for websites India",
-    "automation tools marketing", "n8n automation agency", "Vercel deployment services",
-    "GitHub portfolio developer", "VS Code expert", "cloud SEO optimization",
-    "best agency jharkhand", "Patna digital marketing", "Bihar SEO company",
-    "India top marketing agency", "near me web developer", "popular SEO services",
-    "website agency Patna", "digital marketing Jharkhand", "Noida digital agency",
-    "Performance Marketing in Noida", "MERN Stack Developer Ranchi", "Digital Transformation for Hotels",
-    "Bokaro web development", "Jharkhand digital growth agency", "best full stack agency India"
-  ],
+  description: "Ataur Agency is India's leading digital marketing and web development agency. Scale your business with our data-driven growth strategies and custom web solutions.",
   authors: [{ name: "MD Ataur Ansari" }],
   creator: "MD Ataur Ansari",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Ataur Agency - Leading Digital Marketing & Tech Solutions",
     description: "Expert digital marketing, SEO, and web development services to scale your business. Jharkhand's top-rated agency.",
-    url: "https://atauragency.in",
+    url: "/",
     siteName: "Ataur Agency",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/img/Ataur Agency.png",
         width: 1200,
         height: 630,
         alt: "Ataur Agency - Digital Marketing Excellence",
       },
     ],
-    locale: "en_US",
+    locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Ataur Agency | Grow Your Business with Digital Excellence",
     description: "Specializing in UGC ads, CGI campaigns, and high-performance Web Apps (Next.js/React).",
-    images: ["/images/og-image.jpg"],
+    images: ["/img/Ataur Agency.png"],
     creator: "@ataurway",
   },
   robots: {
@@ -103,6 +57,9 @@ export const metadata: Metadata = {
 
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Chatbot from "@/components/Chatbot";
+import OrganizationSchema from "@/components/OrganizationSchema";
+import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -111,19 +68,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <OrganizationSchema />
+      </head>
       <body className={`${interAccess.variable} ${plusJakartaSans.variable} font-sans antialiased`}>
         <div id="google_translate_element" style={{ display: "none" }}></div>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              function googleTranslateElementInit() {
-                new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element');
-              }
-            `,
-          }}
-        />
-        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer />
+        <Script id="google-translate-init" strategy="afterInteractive">
+          {`
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element');
+            }
+          `}
+        </Script>
+        <Script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
         {children}
+        <DynamicBreadcrumb />
         <WhatsAppButton />
         <Chatbot />
       </body>

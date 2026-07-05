@@ -1,0 +1,24 @@
+# Ataur Agency
+
+> Ataur Agency is a Jamshedpur, Jharkhand-based digital agency specializing in 
+AI automation (n8n workflows, WhatsApp lead-follow-up systems), MERN/Next.js 
+web development, and SEO/GEO/AEO strategy for Indian businesses, with a strong 
+focus on the hospitality and travel sector.
+
+## Core Services
+- AI Automation & n8n Workflow Development
+- MERN Stack / Next.js Website Development
+- SEO, GEO (Generative Engine Optimization) & AEO Strategy
+- Cybersecurity Audits & VAPT
+- Google Business Profile & Local SEO Optimization
+
+## Key Pages
+- Services: https://atauragency.in/services
+- Projects/Case Studies: https://atauragency.in/projects
+- About: https://atauragency.in/about
+- Contact: https://atauragency.in/contact
+
+## Notable Work
+- Hotel UP Wala — Hotel Booking & listing platform built on Next.js, increasing direct bookings by 40% for 50+ local hotels.
+- MyNextTrip — Premium Luxury Travel Booking Portal resulting in over 1.5 million travelers choosing the platform for luxury escapes.
+- Invest Secure — Professional Income Investment & Wealth Management Platform that significantly increased user engagement and capital investments.

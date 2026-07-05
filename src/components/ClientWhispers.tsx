@@ -107,8 +107,29 @@ export default function ClientWhispers() {
     return items;
   };
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Ataur Agency",
+    "review": testimonials.map((t) => ({
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Person", "name": t.founder },
+      "reviewBody": t.text.substring(0, 150) + (t.text.length > 150 ? "..." : "")
+    })),
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": testimonials.length.toString()
+    }
+  };
+
   return (
     <section className="py-24 bg-background relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
       {/* Background Gradient */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,#1e293b_0%,transparent_70%)] opacity-50 pointer-events-none" />
       

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import ServiceSchema from "@/components/ServiceSchema";
 import Footer from "@/components/Footer";
 import PaymentForm from "@/components/PaymentForm";
 import PaymentSuccess from "@/components/PaymentSuccess";
@@ -304,6 +305,7 @@ export default function PerformanceAdvertisingPage() {
                 </section>
             </main>
             <Footer />
-        </div>
-    );
+        
+            <ServiceSchema serviceType="Performance Advertising and PPC Campaigns" description="Data-driven performance marketing and PPC campaigns across Google and Meta platforms to maximize your ROI and generate high-quality leads." url="https://atauragency.in/services/performance-advertising" />
+        </div>);
 }

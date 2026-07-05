@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Moon, Sun, Monitor, Menu, X, Youtube, Facebook, Instagram, Github, Linkedin, Lock, Globe, ChevronDown, SearchCheck } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -98,9 +99,11 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="group flex items-center">
               <div className="relative h-10 w-10 overflow-hidden rounded-xl border-2 border-blue-500 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                <img
+                <Image
                   src="/img/brand-logo.jpg"
-                  alt="Ataur Agency Logo"
+                  alt="Ataur Agency Official Logo - Next.js & AI Marketing"
+                  width={40}
+                  height={40}
                   className="h-full w-full object-cover"
                 />
               </div>

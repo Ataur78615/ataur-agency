@@ -1,10 +1,19 @@
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Ataur Agency | Case Studies & Projects Portfolio India",
-  description: "Browse our portfolio of high-impact Digital Marketing campaigns and advanced Web Development projects successfully delivered to clients across India.",
+  description: "Browse our portfolio of high-impact Digital Marketing campaigns and advanced Web Development projects successfully delivered to clients.",
+  alternates: {
+    canonical: "/projects",
+  },
+  openGraph: {
+    title: "Ataur Agency | Case Studies & Projects Portfolio India",
+    description: "Browse our portfolio of high-impact Digital Marketing campaigns and advanced Web Development projects successfully delivered to clients.",
+    url: "/projects",
+  },
 };
 
 export default function ProjectsPage() {

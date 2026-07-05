@@ -91,6 +91,32 @@ const projects = [
     live: "https://www.service247.store/",
     color: "from-red-600 to-rose-700",
   },
+  {
+    title: "AI Scam Checker",
+    description: "AI-powered tool to detect and prevent online scams",
+    problem: "Users are increasingly falling victim to sophisticated online scams and fraudulent websites.",
+    solution: "An advanced AI-powered detection system that analyzes URLs and content to verify authenticity.",
+    result: "Helped thousands of users identify and avoid potential scams, securing their digital presence.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "AI"],
+    image: "/assets/icon.png",
+    slug: "ai-scam-checker",
+    live: "https://www.aiscamchecker.in/",
+    color: "from-blue-600 to-indigo-800",
+    imageFit: "contain",
+  },
+  {
+    title: "Oxy Hotel",
+    description: "Premium Hotel Booking Platform",
+    problem: "Guests lacked a streamlined, modern interface to book premium rooms with real-time availability.",
+    solution: "A sleek, responsive booking portal featuring virtual tours and seamless reservation management.",
+    result: "Increased direct bookings and improved user satisfaction through a simplified booking flow.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    image: "/assets/oxy new logo.jpeg",
+    slug: "oxy-hotel",
+    live: "https://www.oxyhotel.in/",
+    color: "from-orange-500 to-amber-700",
+    imageFit: "contain",
+  }
 ];
 
 const ProjectCard = ({ project, index }: { project: any, index: number }) => {
@@ -108,15 +134,16 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
     <div ref={container} className="h-screen flex items-center justify-center sticky top-0">
       <motion.div 
         style={{ scale, opacity }}
-        className="w-full max-w-6xl glass-card rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row shadow-2xl border-white/20 dark:border-white/10"
+        className="w-full max-w-6xl glass-card rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row shadow-2xl border-white/20 dark:border-white/10 relative"
       >
+
         {/* Image Section */}
         <div className="md:w-1/2 relative h-64 md:h-auto overflow-hidden">
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-700 hover:scale-110"
+            className={`transition-transform duration-700 hover:scale-110 ${project.imageFit === 'contain' ? 'object-contain p-8 bg-white/5 dark:bg-black/20' : 'object-cover'}`}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
           <div className="absolute bottom-8 left-8">
@@ -136,7 +163,7 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
         <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-between bg-white/50 dark:bg-black/50 backdrop-blur-md">
           <div>
             {/* Tabs Toggle */}
-            <div className="flex gap-2 mb-8 bg-black/5 dark:bg-white/5 p-1 rounded-2xl w-fit">
+            <div className="flex gap-2 mb-8 bg-black/5 dark:bg-white/5 p-1 rounded-2xl w-fit relative z-10">
               {(["problem", "solution", "result"] as const).map((tab) => (
                 <button
                   key={tab}

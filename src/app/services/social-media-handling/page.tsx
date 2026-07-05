@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import ServiceSchema from "@/components/ServiceSchema";
 import Footer from "@/components/Footer";
 import Magnetic from "@/components/Magnetic";
 
@@ -357,6 +358,7 @@ export default function SocialMediaHandling() {
       </main>
 
       <Footer />
-    </div>
-  );
+    
+            <ServiceSchema serviceType="Social Media Management and Strategy" description="Complete social media handling, content creation, and strategic management to build your brand presence and engage your target audience." url="https://atauragency.in/services/social-media-handling" />
+        </div>);
 }

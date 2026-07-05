@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { 
   TrendingUp, 
@@ -220,7 +221,7 @@ export default function CareerPage() {
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-gray-800 border border-white/10 overflow-hidden">
-                    <img src="/img/brand-logo.jpg" alt="Ataur" className="w-full h-full object-cover" />
+                    <Image src="/img/brand-logo.jpg" alt="Ataur Agency Careers and Team Culture" width={48} height={48} className="object-cover" />
                   </div>
                   <div>
                     <p className="text-white font-black uppercase text-xs tracking-widest">Team Ataur</p>

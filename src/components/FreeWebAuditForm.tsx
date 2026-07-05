@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { 
   Globe, 
   Layout, 
@@ -102,7 +103,7 @@ export default function FreeWebAuditForm() {
             target="_blank" 
             className="flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20ba5a] text-white py-5 px-10 rounded-2xl font-black text-xl transition-all shadow-xl shadow-green-500/20 active:scale-95"
           >
-            <img src="https://static.whatsapp.net/rsrc.php/v3/y7/r/DS_Wsc1d9DX.png" alt="WhatsApp" className="w-8 h-8 invert" />
+            <Image src="https://static.whatsapp.net/rsrc.php/v3/y7/r/DS_Wsc1d9DX.png" alt="WhatsApp Support Icon for Free Web Audit" width={32} height={32} className="invert" />
             Chat on WhatsApp
           </a>
         </div>
@@ -265,7 +266,7 @@ export default function FreeWebAuditForm() {
               className="group flex items-center gap-4 bg-[#25D366]/10 hover:bg-[#25D366] p-4 pr-8 rounded-[1.5rem] transition-all border border-[#25D366]/20"
             >
               <div className="bg-[#25D366] p-3 rounded-xl shadow-lg ring-4 ring-green-100/50">
-                <img src="https://static.whatsapp.net/rsrc.php/v3/y7/r/DS_Wsc1d9DX.png" alt="WhatsApp Icon" className="w-6 h-6 invert" />
+                <Image src="https://static.whatsapp.net/rsrc.php/v3/y7/r/DS_Wsc1d9DX.png" alt="WhatsApp Chat Icon for Ataur Agency Audit" width={24} height={24} className="invert" />
               </div>
               <span className="font-black text-[#25D366] group-hover:text-white transition-colors">Chat With Admin</span>
             </a>

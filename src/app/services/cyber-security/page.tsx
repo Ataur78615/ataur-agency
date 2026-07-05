@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import ServiceSchema from "@/components/ServiceSchema";
 import Footer from "@/components/Footer";
 import PaymentForm from "@/components/PaymentForm";
 import PaymentSuccess from "@/components/PaymentSuccess";
@@ -317,6 +318,7 @@ export default function CyberSecurityPage() {
                 </section>
             </main>
             <Footer />
-        </div>
-    );
+        
+            <ServiceSchema serviceType="Cybersecurity Audits and Penetration Testing" description="Protect your digital assets with our comprehensive cybersecurity audits, vulnerability scanning, and professional penetration testing services." url="https://atauragency.in/services/cyber-security" />
+        </div>);
 }

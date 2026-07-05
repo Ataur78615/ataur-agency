@@ -100,13 +100,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Best Digital Marketing Company in ${data.name} | Top Website Agency`,
     description: `Ataur Agency is the top digital marketing agency in ${data.name}. We offer expert local SEO, PPC ads, and custom website design in ${data.name}, ${data.state} to help your business rank #1.`,
-    keywords: [
-      `top digital marketing agency in ${data.name}`,
-      `best digital marketing company in ${data.name}`,
-      `website agency in ${data.name}`,
-      `SEO company in ${data.name}`,
-      ...data.localKeywords
-    ],
+    alternates: {
+      canonical: `/location/${city.toLowerCase()}`,
+    },
+    openGraph: {
+      title: `Best Digital Marketing Company in ${data.name} | Top Website Agency`,
+      description: `Ataur Agency is the top digital marketing agency in ${data.name}. We offer expert local SEO, PPC ads, and custom website design in ${data.name}, ${data.state} to help your business rank #1.`,
+      url: `/location/${city.toLowerCase()}`,
+    }
   };
 }
 

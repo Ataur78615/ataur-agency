@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import ServiceSchema from "@/components/ServiceSchema";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 
@@ -367,6 +368,7 @@ export default function EnterpriseSystemsPage() {
                     </div>
                 )}
             </AnimatePresence>
-        </div>
-    );
+        
+            <ServiceSchema serviceType="Enterprise Management Systems" description="Custom ERP, CRM, and enterprise management systems designed to optimize your workflow and scale your business operations." url="https://atauragency.in/services/enterprise-systems" />
+        </div>);
 }

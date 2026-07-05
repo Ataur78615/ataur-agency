@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -168,9 +169,11 @@ export default function About() {
               </a>
               <a href="https://vercel.com/md-ataur-ansaris-projects" target="_blank" rel="noopener noreferrer" className="group shrink-0">
                 <div className="h-6 w-6 overflow-hidden rounded-full border border-black/10 dark:border-white/20 transition-all duration-300 group-hover:scale-110">
-                  <img
+                  <Image
                     src="/img/brand-logo.jpg"
-                    alt="Ataur Agency"
+                    alt="MD Ataur Ansari - Founder of Ataur Agency"
+                    width={24}
+                    height={24}
                     className="h-full w-full object-cover"
                   />
                 </div>

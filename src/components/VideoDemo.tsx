@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 // Professional Dummy Data with Real-looking Thumbnails and Videos
 const videos = [
@@ -11,6 +12,7 @@ const videos = [
     category: "UGC",
     thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop",
     videoUrl: "https://www.youtube.com/embed/31CFWRuVPtU",
+    type: "youtube"
   },
   {
     id: 2,
@@ -18,21 +20,48 @@ const videos = [
     category: "CGI Ads",
     thumbnail: "https://images.unsplash.com/photo-1633511090164-b43840ea1607?q=80&w=1000&auto=format&fit=crop",
     videoUrl: "https://www.youtube.com/embed/vbEuX7blryU",
+    type: "youtube"
   },
   {
     id: 3,
+    title: "Performance UGC Ad",
+    category: "UGC",
+    thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop",
+    videoUrl: "https://www.instagram.com/p/DaZaMOLgCtH/embed",
+    type: "instagram"
+  },
+  {
+    id: 4,
+    title: "High-End CGI Campaign",
+    category: "CGI Ads",
+    thumbnail: "https://images.unsplash.com/photo-1633511090164-b43840ea1607?q=80&w=1000&auto=format&fit=crop",
+    videoUrl: "https://www.instagram.com/p/DYbPGNETnEX/embed",
+    type: "instagram"
+  },
+  {
+    id: 5,
     title: "AI & Tech Showcase",
     category: "UGC",
     thumbnail: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop",
     videoUrl: "https://www.youtube.com/embed/8KVPB7DNIg0",
+    type: "youtube"
   },
   {
-    id: 4,
+    id: 6,
+    title: "Creative Video Marketing",
+    category: "UGC",
+    thumbnail: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop",
+    videoUrl: "https://www.instagram.com/p/DaarLBYtUdj/embed",
+    type: "instagram"
+  },
+  {
+    id: 7,
     title: "Business Automation Demo",
     category: "CGI Ads",
     thumbnail: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop",
     videoUrl: "https://www.youtube.com/embed/hlG6zjCIGu0",
-  },
+    type: "youtube"
+  }
 ];
 
 interface Video {
@@ -41,10 +70,32 @@ interface Video {
   category: string;
   thumbnail: string;
   videoUrl: string;
+  type?: string;
 }
 
 export default function VideoDemo() {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (isHovered) return;
+    
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          const firstChild = scrollRef.current.children[0] as HTMLElement;
+          const scrollAmount = firstChild ? firstChild.clientWidth + 32 : 350; // 32px is gap-8
+          scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        }
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isHovered]);
 
   return (
     <section id="videos" className="py-20 bg-white">
@@ -63,8 +114,13 @@ export default function VideoDemo() {
           </p>
         </motion.div>
 
-        {/* Video Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Video Slider */}
+        <div 
+          ref={scrollRef}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-12 pt-4 px-4 -mx-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        >
           {videos.map((video, index) => (
             <motion.div
               key={video.id}
@@ -73,14 +129,15 @@ export default function VideoDemo() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-gray-100 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer border border-gray-200"
+              className="group relative bg-gray-100 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer border border-gray-200 shrink-0 w-[85vw] sm:w-[320px] lg:w-[350px] snap-center"
             >
               {/* Thumbnail Container */}
               <div className="relative h-64 overflow-hidden">
-                <img
+                <Image
                   src={video.thumbnail}
-                  alt={video.title}
-                  className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700"
+                  alt={video.title || "Ataur Agency AI Automation and Marketing Demo Video Thumbnail"}
+                  fill
+                  className="object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
 
                 {/* Dark Overlay on Hover */}
@@ -127,7 +184,9 @@ export default function VideoDemo() {
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.5, opacity: 0 }}
-              className="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl aspect-video"
+              className={`relative w-full bg-black rounded-2xl overflow-hidden shadow-2xl ${
+                selectedVideo.type === 'instagram' ? 'max-w-sm aspect-[9/16]' : 'max-w-4xl aspect-video'
+              }`}
               onClick={(e) => e.stopPropagation()} // Prevent closing when clicking video area
             >
               {/* Close Button */}
@@ -138,9 +197,9 @@ export default function VideoDemo() {
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
               </button>
 
-              {/* Youtube Iframe */}
+              {/* Iframe */}
               <iframe
-                src={`${selectedVideo.videoUrl}?autoplay=1`}
+                src={selectedVideo.type === 'instagram' ? selectedVideo.videoUrl : `${selectedVideo.videoUrl}?autoplay=1`}
                 title={selectedVideo.title}
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

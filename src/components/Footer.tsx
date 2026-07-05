@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -24,7 +25,7 @@ export default function Footer() {
           >
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 rounded-xl overflow-hidden border-2 border-blue-500/30 p-0.5 bg-white/5 backdrop-blur-sm shadow-xl">
-                <img src="/img/brand-logo.jpg" alt="Ataur Agency" className="w-full h-full object-cover rounded-lg" />
+                <Image src="/img/brand-logo.jpg" alt="Ataur Agency Digital Growth and AI Automation Logo" width={48} height={48} className="object-cover rounded-lg" />
               </div>
               <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 tracking-tight">
                 Ataur Agency
@@ -144,7 +145,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center p-2.5 hover:scale-110 hover:-translate-y-1 transition-all duration-300 box-content border border-white/10"
               >
-                <img src="/img/brand-logo.jpg" alt="Ataur Agency" className="w-full h-full object-cover rounded-lg" />
+                <Image src="/img/brand-logo.jpg" alt="Ataur Agency Digital Growth and AI Automation Logo" width={48} height={48} className="object-cover rounded-lg" />
               </a>
             </div>
 
