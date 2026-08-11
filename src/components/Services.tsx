@@ -16,30 +16,30 @@ import {
 
 const services = [
   {
-    title: "Digital Marketing Services",
+    title: "Performance Marketing",
     description: "Drive high-intent traffic, capture leads, and scale revenue with our result-driven digital marketing services, including advanced SEO, PPC campaigns, and social media handling.",
     icon: <Rocket size={32} />,
     tags: ["Meta & Google Ads", "SEO Services", "Social Media Growth"],
     color: "from-blue-500 to-indigo-600",
-    href: "/services/performance-advertising",
+    href: "/services/performance-marketing",
     size: "md:col-span-2 md:row-span-2",
   },
   {
-    title: "Website Design & Dev Agency",
+    title: "Next.js Web Development",
     description: "As a premier website design and development agency, we build responsive, lightning-fast custom websites, e-commerce platforms, and MERN/Next.js systems optimized for conversions.",
     icon: <Code size={32} />,
     tags: ["Next.js & React", "E-commerce", "Website Design"],
     color: "from-emerald-500 to-teal-600",
-    href: "/services/web-design-development",
+    href: "/services/nextjs-web-development",
     size: "md:col-span-2 md:row-span-1",
   },
   {
-    title: "AI & Automation",
+    title: "AI & n8n Lead Automation",
     description: "24/7 AI agents and n8n workflow automation to nurture leads.",
     icon: <BrainCircuit size={32} />,
     tags: ["WhatsApp AI", "n8n", "LLMs"],
     color: "from-orange-500 to-red-600",
-    href: "/services/ai-automation",
+    href: "/services/ai-n8n-lead-automation",
     size: "md:col-span-1 md:row-span-1",
   },
   {

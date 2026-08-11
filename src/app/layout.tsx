@@ -9,8 +9,8 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "600", 
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.atauragency.in"),
-  title: "Ataur Agency | Best Digital Marketing & Web Development Agency in India",
-  description: "Ataur Agency is India's leading digital marketing and web development agency. Scale your business with our data-driven growth strategies and custom web solutions.",
+  title: "Ataur Agency — Full-Stack Web Development, Performance Marketing & AI Automation Agency in Ranchi & NCR",
+  description: "Scale your business with Ataur Agency. We build custom Next.js websites, ROI-focused Google & Meta Ads campaigns, and AI-powered n8n lead automation for hotels, startups, and enterprises. Book a free audit today!",
   authors: [{ name: "MD Ataur Ansari" }],
   creator: "MD Ataur Ansari",
   alternates: {

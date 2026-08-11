@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function WhatsAppButton() {
     const whatsappNumber = "917250570798";
-    const message = "Hello Ataur Agency, I'm interested in your services!";
+    const message = "Hello Ataur Agency, I would like to know more about your web development, digital marketing and AI automation services.";
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
     return (
@@ -12,14 +12,14 @@ export default function WhatsAppButton() {
             initial={{ opacity: 0, scale: 0, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.5 }}
-            style={{ position: "fixed", bottom: "30px", left: "30px", zIndex: 1000 }}
+            style={{ position: "fixed", bottom: "30px", right: "30px", zIndex: 1000 }}
             className="group"
         >
             {/* Tooltip */}
-            <div className="absolute bottom-full left-0 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            <div className="absolute bottom-full right-0 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                 <div className="bg-gray-900 text-white text-xs font-bold px-4 py-2 rounded-xl whitespace-nowrap shadow-xl border border-gray-800">
                     Chat with us on WhatsApp! 🚀
-                    <div className="absolute top-full left-6 w-2 h-2 bg-gray-900 rotate-45 -mt-1 border-l border-b border-gray-800" />
+                    <div className="absolute top-full right-6 w-2 h-2 bg-gray-900 rotate-45 -mt-1 border-r border-b border-gray-800" />
                 </div>
             </div>
 
@@ -27,6 +27,7 @@ export default function WhatsAppButton() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Chat with Ataur Agency on WhatsApp"
                 className="relative flex items-center justify-center w-16 h-16 bg-[#25D366] rounded-full shadow-2xl hover:bg-[#20ba5a] transition-all duration-300 hover:scale-110 active:scale-95"
             >
                 {/* Pulse effects */}
